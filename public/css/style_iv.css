@@ -7168,11 +7168,11 @@ input[type="checkbox"]:checked + label:after {
 	margin-bottom:30px;
 	border-bottom:1px solid #e4e4e4;
 }
-.login_btn_wrapper a.login_btn {
+.login_btn_wrapper .login_btn {
    text-align:center;
    text-transform:uppercase;
 }
-.login_btn_wrapper a.login_btn:hover {
+.login_btn_wrapper .login_btn:hover {
     background-color: #00b5e4;
     border-color: #00b5e4;
 	-webkit-transition: all 0.5s;

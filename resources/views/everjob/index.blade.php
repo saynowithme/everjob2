@@ -100,7 +100,7 @@
                                              <li class="parent"><a href="about.html">About-Us</a></li>
                                             <li class="parent"><a href="404_error.html">404</a></li>
                                             <li class="parent"><a href="add_postin.html">Add-Posting</a></li>
-											 <li class="parent"><a href="login.html">Login</a></li>
+											 <li class="parent"><a href="{{ route('login') }}">Login</a></li>
                                             <li class="parent"><a href="register.html">Register</a></li>
                                             <li class="parent"><a href="pricing.html">Pricing</a></li>
                                         </ul>
@@ -207,7 +207,7 @@
                                                                 <li><a href="about.html">About-Us</a></li>
 																<li><a href="404_error.html">404</a></li>
 																<li><a href="add_postin.html">Add-Posting</a></li>
-																<li><a href="login.html">Login</a></li>
+																<li><a href="{{ route('login') }}">Login</a></li>
 																<li><a href="register.html">Register</a></li>
 																<li><a href="pricing.html">Pricing</a></li>
                                                                 <!-- .has-children -->
@@ -252,7 +252,7 @@
                                                             <a href="register.html">Sign Up</a>
                                                         </li>
 														<li>
-                                                            <a href="login.html">Login</a>
+                                                            <a href="{{ route('login') }}">Login</a>
                                                         </li>
 
                                                     </ul>
@@ -276,7 +276,7 @@
                         <div class="jp_navi_right_btn_wrapper">
                             <ul>
                                 <li><a href="register.html"><i class="fa fa-user"></i>&nbsp; SIGN UP</a></li>
-                                <li><a href="login.html"><i class="fa fa-sign-in"></i>&nbsp; LOGIN</a></li>
+                                <li><a href="{{ route('login') }}"><i class="fa fa-sign-in"></i>&nbsp; LOGIN</a></li>
                             </ul>
                         </div>
                     </div>
@@ -2992,33 +2992,6 @@
         </div>
     </div>
     <!-- jp pricing Wrapper End -->
-    <!-- jp downlord Wrapper Start -->
-    <div class="jp_downlord_main_wrapper">
-        <div class="jp_downlord_img_overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hidden-sm hidden-xs">
-                    <div class="jp_down_mob_img_wrapper">
-                        <img src="images/content/mobail.png" alt="mobail_img" />
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="ss_download_wrapper_details">
-                        <h1><span>Download</span><br>Job Portal App Now!</h1>
-                        <p>Fast, Simple & Delightful. All it takes is 30 seconds to Download.</p>
-                        <a href="#" class="ss_appstore"><span><i class="fa fa-apple" aria-hidden="true"></i></span> App Store</a>
-                        <a href="#" class="ss_playstore"><span><i class="fa fa-android" aria-hidden="true"></i></span> Play Store</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 visible-sm visible-xs">
-                    <div class="jp_down_mob_img_wrapper">
-                        <img src="images/content/mobail.png" class="img-responsive" alt="mobail_img" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- jp downlord Wrapper End -->
     <!-- jp Newsletter Wrapper Start -->
     <div class="jp_main_footer_img_wrapper">
         <div class="jp_newsletter_img_overlay_wrapper"></div>
@@ -3116,7 +3089,7 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <div class="jp_bottom_footer_left_cont">
-                                        <p>© 2019-20 Job Pro. All Rights Reserved.</p>
+                                        <p>© 2019-20 Ever Job Pro. All Rights Reserved.</p>
                                     </div>
                                     <div class="jp_bottom_top_scrollbar_wrapper">
                                         <a href="javascript:" id="return-to-top"><i class="fa fa-angle-up"></i></a>
