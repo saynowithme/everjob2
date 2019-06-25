@@ -35,6 +35,7 @@ Purchase:
     <link rel="shortcut icon" type="image/png" href="images/header/favicon.ico" />
 </head>
 <body>
+
     @yield('content')
     <!-- jp footer Wrapper End -->
 	<!--main js file start-->
