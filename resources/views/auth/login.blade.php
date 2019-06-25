@@ -24,7 +24,7 @@
                 <div class="jp_top_header_right_wrapper">
                     <div class="jp_top_header_right_cont">
                         <ul>
-                            <li><a href="register.html"><i class="fa fa-user"></i>&nbsp; SIGN UP</a></li>
+                            <li><a href="{{ route('register') }}"><i class="fa fa-user"></i>&nbsp; SIGN UP</a></li>
                             <li><a href="{{ route('login') }} "><i class="fa fa-sign-in"></i>&nbsp; LOGIN</a></li>
                         </ul>
                     </div>
@@ -113,8 +113,8 @@
                                          <li class="parent"><a href="about.html">About-Us</a></li>
                                         <li class="parent"><a href="404_error.html">404</a></li>
                                         <li class="parent"><a href="add_postin.html">Add-Posting</a></li>
-                                         <li class="parent"><a href="login.html">Login</a></li>
-                                        <li class="parent"><a href="register.html">Register</a></li>
+                                         <li class="parent"><a href="{{ route('login') }}">Login</a></li>
+                                        <li class="parent"><a href="{{ route('register') }}">Register</a></li>
                                         <li class="parent"><a href="pricing.html">Pricing</a></li>
                                     </ul>
                                 </li>
@@ -221,7 +221,7 @@
                                                             <li><a href="404_error.html">404</a></li>
                                                             <li><a href="add_postin.html">Add-Posting</a></li>
                                                             <li><a href="login.html">Login</a></li>
-                                                            <li><a href="register.html">Register</a></li>
+                                                            <li><a href="{{ route('register') }}">Register</a></li>
                                                             <li><a href="pricing.html">Pricing</a></li>
                                                             <!-- .has-children -->
 
@@ -262,7 +262,7 @@
                                                         <a href="contact.html">Contact</a>
                                                     </li>
                                                     <li>
-                                                        <a href="register.html">Sign Up</a>
+                                                        <a href="{{ route('register') }}">Sign Up</a>
                                                     </li>
                                                     <li>
                                                         <a href="login.html">Login</a>
