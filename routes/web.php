@@ -52,3 +52,9 @@ Route::prefix('jobs')->group(function(){
 Route::get('/job-posting',function(){
     return view('everjob.job-posting.job-posting');
 })->name('job-posting');
+
+// Route::get('/home', 'Backend\HomeController@index');
+
+Route::prefix('admin')->group(function(){
+    Route::get('/', 'Admin\HomeController@index')->name('home');
+});
