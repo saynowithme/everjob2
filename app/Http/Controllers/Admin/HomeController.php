@@ -1,39 +1,23 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests;
 use Illuminate\Http\Request;
-use App\Category;
+use App\Http\Controllers\Controller;
+
 class HomeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
     /**
-     * Show the application dashboard.
-     *
+     * Show Admin Dashboard.
+     * 
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        // $post_count = Post::count();
-        $post_count = 0;
-        // $admin_count = Admin::count();
-        $admin_count = 0;
-    	$category_count = Category::count();
-    	return view('admin.index',['num_post'=> $post_count,'num_admin'=>$admin_count,'num_cate'=>$category_count]);
+        return view('admin.index', ['num_post' => 0, 'num_cate' => 0, 'num_admin' => 0]);
     }
-
-    // public function edit(Request $request)
-    // {
-    //     $user = $request->user();
-
-    //     return view('backend.home.edit', compact('user'));
-    // }
-
-    // public function update(Requests\AccountUpdateRequest $request)
-    // {
-    //     $user = $request->user();
-    //     $user->update($request->all());
-
-    //     return redirect()->back()->with("message", "Account was update successfully!");
-    // }
 }

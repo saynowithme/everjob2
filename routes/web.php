@@ -13,26 +13,26 @@
 
 Route::get('/', 'PagesController@getindex');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 
-Route::get('logout', function (){
+Route::get('logout', function () {
     Auth::logout();
     return redirect('/login');
-    });
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::prefix('candidates')->group(function(){
-    Route::get('/',function(){
+Route::prefix('candidates')->group(function () {
+    Route::get('/', function () {
         return view('everjob.candidate.candidateListing');
     })->name('candidates');
     Route::get('/{id}', function ($id) {
         return view('everjob.candidate.candidateDetail');
     });
 });
-Route::prefix('companies')->group(function(){
-    Route::get('/',function(){
+Route::prefix('companies')->group(function () {
+    Route::get('/', function () {
         return view('.everjob.company.company');
     })->name('company');
     Route::get('/{id}', function ($id) {
@@ -40,7 +40,7 @@ Route::prefix('companies')->group(function(){
     });
 });
 
-Route::prefix('jobs')->group(function(){
+Route::prefix('jobs')->group(function () {
     Route::get('/', function () {
         return view('everjob.job.job');
     })->name('job');
@@ -49,12 +49,22 @@ Route::prefix('jobs')->group(function(){
     });
 });
 
-Route::get('/job-posting',function(){
+Route::get('/job-posting', function () {
     return view('everjob.job-posting.job-posting');
 })->name('job-posting');
 
-// Route::get('/home', 'Backend\HomeController@index');
-
-Route::prefix('admin')->group(function(){
-    Route::get('/', 'Admin\HomeController@index')->name('home');
+Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
+    Route::namespace('Auth')->group(function () {
+        //Login Routes
+        Route::get('/login', 'LoginController@showLoginForm')->name('login');
+        Route::post('/login', 'LoginController@login');
+        Route::post('/logout', 'LoginController@logout')->name('logout');
+        //Forgot Password Routes
+        Route::get('/password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');
+        Route::post('/password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+        //Reset Password Routes
+        Route::get('/password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');
+        Route::post('/password/reset', 'ResetPasswordController@reset')->name('password.update');
+    });
+    Route::get('/', 'HomeController@index')->name('home')->middleware('guard.verified:admin');
 });

@@ -248,13 +248,16 @@
                                                         <li>
                                                             <a href="contact.html">Contact</a>
                                                         </li>
+                                                        @if (!Auth::user()->id)
 														<li>
                                                             <a href="{{ route('register') }}">Sign Up</a>
                                                         </li>
 														<li>
                                                             <a href="{{ route('login') }}">Login</a>
                                                         </li>
-
+                                                        @else
+                                                        <li>Logout</li>
+                                                        @endif
                                                     </ul>
                                                     <!-- .cd-dropdown-content -->
 
@@ -275,8 +278,12 @@
                     <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 hidden-sm hidden-xs">
                         <div class="jp_navi_right_btn_wrapper">
                             <ul>
-                                <li><a href="{{ route('register') }}"><i class="fa fa-user"></i>&nbsp; SIGN UP</a></li>
-                                <li><a href="{{ route('login') }}"><i class="fa fa-sign-in"></i>&nbsp; LOGIN</a></li>
+                                    @if (Auth::user())
+                                    <li><a href="{{ route('logout') }}"><i class="fa fa-user"></i>&nbsp; LOG OUT</a></li>
+                                    @else
+                                    <li><a href="{{ route('register') }}"><i class="fa fa-user"></i>&nbsp; SIGN UP</a></li>
+                                    <li><a href="{{ route('login') }}"><i class="fa fa-sign-in"></i>&nbsp; LOGIN</a></li>
+                                    @endif
                             </ul>
                         </div>
                     </div>
