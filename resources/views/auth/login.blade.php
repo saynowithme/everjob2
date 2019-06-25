@@ -382,7 +382,7 @@
                                 </button>
                         </div>
                         <div class="login_message">
-                            <p>Don’t have an account ? <a href="#"> Register Now </a> </p>
+                        <p>Don’t have an account ? <a href="{{route('register')}}}"> Register Now </a> </p>
                         </div>
                     </div>
                     <p>In case you are using a public/shared computer we recommend that
