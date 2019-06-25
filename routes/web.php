@@ -11,15 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('everjob.index');
-});
+Route::get('/', 'PagesController@getindex');
 
 Auth::routes();
 
-Route::get('logout', function (){
-    Auth::logout();
-    return redirect('/login');
-    });
+// Route::get('logout', function (){
+//     Auth::logout();
+//     return redirect('/login');
+//     });
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/', 'HomeController@index')->name('home');

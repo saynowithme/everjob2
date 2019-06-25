@@ -350,41 +350,15 @@
         </div>
         <div class="jp_banner_jobs_categories_wrapper">
             <div class="container">
+            @foreach($cates as $cate)
                 <div class="jp_top_jobs_category_wrapper jp_job_cate_left_border jp_job_cate_left_border_bottom">
                     <div class="jp_top_jobs_category">
                         <i class="fa fa-code"></i>
-                        <h3><a href="#">Developer</a></h3>
+                        <h3><a href="#">{{$cate->name}}</a></h3>
                         <p>(240 jobs)</p>
                     </div>
                 </div>
-                <div class="jp_top_jobs_category_wrapper jp_job_cate_left_border_bottom">
-                    <div class="jp_top_jobs_category">
-                        <i class="fa fa-laptop"></i>
-                        <h3><a href="#">Technology</a></h3>
-                        <p>(504 jobs)</p>
-                    </div>
-                </div>
-                <div class="jp_top_jobs_category_wrapper jp_job_cate_left_border_bottom">
-                    <div class="jp_top_jobs_category">
-                        <i class="fa fa-bar-chart"></i>
-                        <h3><a href="#">Accounting</a></h3>
-                        <p>(2250 jobs)</p>
-                    </div>
-                </div>
-                <div class="jp_top_jobs_category_wrapper jp_job_cate_left_border_res">
-                    <div class="jp_top_jobs_category">
-                        <i class="fa fa-medkit"></i>
-                        <h3><a href="#">Medical</a></h3>
-                        <p>(202 jobs)</p>
-                    </div>
-                </div>
-                <div class="jp_top_jobs_category_wrapper">
-                    <div class="jp_top_jobs_category">
-                        <i class="fa fa-university"></i>
-                        <h3><a href="#">Government</a></h3>
-                        <p>(1457 jobs)</p>
-                    </div>
-                </div>
+            @endforeach
                 <div class="jp_top_jobs_category_wrapper">
                     <div class="jp_top_jobs_category">
                         <i class="fa fa-th-large"></i>
@@ -514,54 +488,21 @@
                                 </div>
                                 <div class="jp_hiring_slider_wrapper">
                                     <div class="owl-carousel owl-theme">
+                                    @foreach($lists as $list)
                                         <div class="item">
                                             <div class="jp_hiring_content_main_wrapper">
                                                 <div class="jp_hiring_content_wrapper">
                                                     <img src="images/content/hiring_img1.png" alt="hiring_img" />
-                                                    <h4>Akshay INC.</h4>
-                                                    <p>(NewYork)</p>
+                                                    <h4>{{$list->CompanyName}}</h4>
+                                                    <p>({{$list->CompanyAdd}})</p>
                                                     <ul>
                                                         <li><a href="#">4 Opening</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="jp_hiring_content_main_wrapper">
-                                                <div class="jp_hiring_content_wrapper">
-                                                    <img src="images/content/hiring_img2.png" alt="hiring_img" />
-                                                    <h4>Akshay INC.</h4>
-                                                    <p>(NewYork)</p>
-                                                    <ul>
-                                                        <li><a href="#">4 Opening</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="jp_hiring_content_main_wrapper">
-                                                <div class="jp_hiring_content_wrapper">
-                                                    <img src="images/content/hiring_img3.png" alt="hiring_img" />
-                                                    <h4>Akshay INC.</h4>
-                                                    <p>(NewYork)</p>
-                                                    <ul>
-                                                        <li><a href="#">4 Opening</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="jp_hiring_content_main_wrapper">
-                                                <div class="jp_hiring_content_wrapper">
-                                                    <img src="images/content/hiring_img4.png" alt="hiring_img" />
-                                                    <h4>Akshay INC.</h4>
-                                                    <p>(NewYork)</p>
-                                                    <ul>
-                                                        <li><a href="#">4 Opening</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        </div> 
+                                       
+                                    @endforeach                                  
                                     </div>
                                 </div>
                             </div>
