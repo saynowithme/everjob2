@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
             ],
             [
                 'name' => "Nguyễn Thành Long",
-                'email' => "minhhuyit@gmail.com",
+                'email' => "thanhlongit@gmail.com",
                 'password' => bcrypt('secret'),
             ],
         ]);
