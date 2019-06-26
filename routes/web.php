@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'PagesController@getindex');
+
 
 Auth::routes(['verify' => true]);
 

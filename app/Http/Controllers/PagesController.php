@@ -9,14 +9,14 @@ use App\CV;
 use App\Customers;
 class PagesController extends Controller
 {
-    public function getindex()
-    {
-        $cates = Category::all(); 
-        $listcompanies = Customers::all();
-        $listjob = Recruiment::all();
-        $listresumes = CV::all();
-        return view('everjob.index',['cates'=>$cates,'listjob'=>$listjob,'listresumes'=>$listresumes,'listcompanies'=>$listcompanies]);
-    }
+    // public function getindex()
+    // {
+    //     $cates = Category::all(); 
+    //     $listcompanies = Customers::all();
+    //     $listjob = Recruiment::all();
+    //     $listresumes = CV::all();
+    //     return view('everjob.index',['cates'=>$cates,'listjob'=>$listjob,'listresumes'=>$listresumes,'listcompanies'=>$listcompanies]);
+    // }
 
     public function getcompanies()
     {

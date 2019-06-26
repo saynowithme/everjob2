@@ -10,6 +10,6 @@ class Customers extends Model
     
     public function recruiment()
     {
-        return $this->hasMany('App\Recruiment','CusID','CusID');
+        return $this->hasMany('App\Recruiment','user_id','id');
     }   
 }
