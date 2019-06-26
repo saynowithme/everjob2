@@ -39,7 +39,7 @@
                     <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-xs hidden-sm full_width">
                         <div class="gc_header_wrapper">
                             <div class="gc_logo">
-                                <a href="index.html"><img src="images/header/logo.png" alt="Logo" title="Job Pro" class="img-responsive"></a>
+                                <a href="{{route('home')}}"><img src="images/header/logo.png" alt="Logo" title="Job Pro" class="img-responsive"></a>
                             </div>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                                     <div class="row">
                                         <div class="col-xs-6 col-sm-6">
                                             <div class="gc_logo">
-                                                <a href="index.html"><img src="images/header/logo.png" alt="Logo" title="Grace Church"></a>
+                                                <a href="{{route('home')}}"><img src="images/header/logo.png" alt="Logo" title="Grace Church"></a>
                                             </div>
                                         </div>
                                         <div class="col-xs-6 col-sm-6">
@@ -528,7 +528,7 @@
                                                                     <h4>{{$list->JobName}} ({{$list->Experience}}.)</h4>
                                                                     <p>{{$list->CompanyName}}</p>
                                                                     <ul>
-                                                                        <li><i class="fa fa-cc-paypal"></i>&nbsp; {{$list->Amount}} P.A.</li>
+                                                                        <li><i class="fa fa-cc-paypal"></i>&nbsp; {{$list->LevelGra}} P.A.</li>
                                                                         <li><i class="fa fa-map-marker"></i>&nbsp; {{$list->CompanyAdd}}</li>
                                                                     </ul>
                                                                 </div>
@@ -537,7 +537,7 @@
                                                                 <div class="jp_job_post_right_btn_wrapper">
                                                                     <ul>
                                                                         <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                                        <li><a href="#">Part Time</a></li>
+                                                                        <li><p>{{$list->JobType}}</p></li>
                                                                         <li><a href="#">Apply</a></li>
                                                                     </ul>
                                                                 </div>
@@ -587,7 +587,7 @@
                                                                     <h4>{{$list->JobName}} ({{$list->Experience}}.)</h4>
                                                                     <p>{{$list->CompanyName}}</p>
                                                                     <ul>
-                                                                        <li><i class="fa fa-cc-paypal"></i>&nbsp; {{$list->Amount}} P.A.</li>
+                                                                        <li><i class="fa fa-cc-paypal"></i>&nbsp; {{$list->LevelGra}} P.A.</li>
                                                                         <li><i class="fa fa-map-marker"></i>&nbsp; {{$list->CompanyAdd}}</li>
                                                                     </ul>
                                                                 </div>
@@ -596,7 +596,7 @@
                                                                 <div class="jp_job_post_right_btn_wrapper">
                                                                     <ul>
                                                                         <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                                        <li><a href="#">Part Time</a></li>
+                                                                        <li><p>{{$list->JobType}}</p></li>
                                                                         <li><a href="#">Apply</a></li>
                                                                     </ul>
                                                                 </div>
@@ -639,7 +639,7 @@
                                         <h4>I’m an EMPLOYER</h4>
                                         <p>Signed in companies are able to post new<br> job offers, searching for candidate...</p>
                                         <ul>
-                                            <li><a href="#"><i class="fa fa-plus-circle"></i> &nbsp;REGISTER AS COMPANY</a></li>
+                                            <li><a href=""><i class="fa fa-plus-circle"></i> &nbsp;REGISTER AS COMPANY</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -693,7 +693,7 @@
                                                     <h4>{{$list->JobName}} ({{$list->Experience}})</h4>
                                                     <p>{{$list->CompanyName}}</p>
                                                     <ul>
-                                                        <li><i class="fa fa-cc-paypal"></i>&nbsp; {{$list->Amount}} P.A.</li>
+                                                        <li><i class="fa fa-cc-paypal"></i>&nbsp; {{$list->LevelGra}} P.A.</li>
                                                         <li><i class="fa fa-map-marker"></i>&nbsp; {{$list->CompanyAdd}}</li>
                                                     </ul>
                                                 </div>

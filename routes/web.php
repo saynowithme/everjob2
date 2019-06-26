@@ -36,7 +36,12 @@ Route::prefix('jobs')->group(function(){
     Route::get('/{id}', 'PagesController@getjobinfo')->name('job1','id');
 });
 
-Route::get('/job-posting', 'PagesController@getpost')->name('job-posting');
+Route::prefix('job-posting')->group(function(){
+    Route::get('/', 'PagesController@getpost')->name('job-posting');
+    Route::post('/', 'PagesController@postAdd');
+});
+
+
 
 Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
     Route::namespace('Auth')->group(function () {

@@ -121,12 +121,7 @@
                                         <td class="td-w25">Qualifications</td>
                                         <td class="td-w10">:</td>
                                         <td class="td-w65">{{$cv->Learn}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td-w25">Experience</td>
-                                        <td class="td-w10">:</td>
-                                        <td class="td-w65">{{$cv->Experience}}</td>
-                                    </tr>
+                                    </tr> 
                                     <tr>
                                         <td class="td-w25">Address</td>
                                         <td class="td-w10">:</td>
@@ -160,8 +155,8 @@
 					<div class="row">
 						<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
 							<div class="jp_cp_accor_heading_wrapper">
-								<h2>Education</h2>
-								<p>Proin gravida nibh vel velit quet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulpuate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt.</p>
+								<h2>Exprience</h2>
+								<p>{{$cv->Experience}}</p>
 							</div>
 						</div>
 						<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">

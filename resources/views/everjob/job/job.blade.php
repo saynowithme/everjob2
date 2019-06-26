@@ -416,7 +416,7 @@ Purchase:
                                                                 <h4>{{$list->JobName}} ({{$list->Experience}} Exp.)</h4>
                                                                 <p>{{$list->CompanyName}}</p>
                                                                 <ul>
-                                                                    <li><i class="fa fa-cc-paypal"></i>&nbsp; {{$list->Amount}}$ P.A.</li>
+                                                                    <li><i class="fa fa-cc-paypal"></i>&nbsp; {{$list->LevelGra}}$ P.A.</li>
                                                                     <li><i class="fa fa-map-marker"></i>&nbsp; {{$list->RecAdd}}</li>
                                                                 </ul>
                                                             </div>
@@ -425,7 +425,7 @@ Purchase:
                                                             <div class="jp_job_post_right_btn_wrapper jp_job_post_grid_right_btn_wrapper">
                                                                 <ul>
                                                                     <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                                                    <li><a href="#">Part Time</a></li>
+                                                                    <li><p>{{$list->JobType}}</p></li>
                                                                 <li><a href="{{route('job',$list->id)}}">Apply</a></li>
                                                                 </ul>
                                                             </div>
