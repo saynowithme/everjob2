@@ -48,7 +48,6 @@
                             <!-- mainmenu start -->
                             <div class="mainmenu">
                                  <ul class="float_left">
-<<<<<<< HEAD
                                     <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">  Home&nbsp;<i class="fa fa-angle-down"></i></a>
                                         <!-- mega menu start -->
                                         <ul>
@@ -93,11 +92,6 @@
                                         </ul>
                                     </li>
                                     <li class="gc_main_navigation parent"><a href="contact.html" class="gc_main_navigation">Contact</a></li>
-=======
-                                    <li class="parent gc_main_navigation"><a href="{{route('candidates')}}" class="gc_main_navigation">candidates &nbsp;</li>
-                                    
-                                    <!-- <li class="gc_main_navigation parent"><a href="contact.html" class="gc_main_navigation">Contact</a></li> -->
->>>>>>> 71988bb1b6ef9d38b59ba828034e5f6c8f40c627
                                 </ul>
                             </div>
                             <!-- mainmenu end -->
@@ -264,7 +258,7 @@
                                     @if (Auth::user()->id)
 
                                     <!-- @if (Auth::user())
->>>>>>> 9426ef162482f4a170dc7b127e1992e956d084a7
+
                                     <li><a href="{{ route('logout') }}"><i class="fa fa-user"></i>&nbsp; LOG OUT</a></li>
                                     @else -->
                                     <li><a href="{{ route('register') }}"><i class="fa fa-user"></i>&nbsp; SIGN UP</a></li>

@@ -27,12 +27,8 @@
                                     </ul>
                                 </div>
                                 <ul class="float_left">
-<<<<<<< HEAD
-                                    <li class="has-mega gc_main_navigation"><a href="" class="gc_main_navigation">  Job&nbsp;<i class="fa fa-angle-down"></i></a>
+                                    <li class="has-mega gc_main_navigation"><a href="{{route('job')}}" class="gc_main_navigation">  Job&nbsp;<i class="fa fa-angle-down"></i></a>
                                     
-=======
-                                    <li class="has-mega gc_main_navigation"><a href="{{route('job')}}" class="gc_main_navigation">  Job&nbsp;</a>
->>>>>>> 71988bb1b6ef9d38b59ba828034e5f6c8f40c627
                                     </li>
                                     <li class="parent gc_main_navigation"><a href="{{route('candidates')}}" class="gc_main_navigation">candidates &nbsp;</a>
                                             
