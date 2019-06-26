@@ -236,134 +236,24 @@ Purchase:
                 </div>
                 <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 jp_cl_right_bar">
                     <div class="row">
+                    @foreach($lists as $list)
                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="jp_recent_resume_box_wrapper">
                                 <div class="jp_recent_resume_img_wrapper">
                                     <img src="images/content/resume_img1.jpg" alt="resume_img" />
                                 </div>
                                 <div class="jp_recent_resume_cont_wrapper">
-                                    <h3>Akshay Handge</h3>
-                                    <p><i class="fa fa-folder-open-o"></i> <a href="#">UI Designer</a></p>
+                                    <h3>{{$list->Name}}</h3>
+                                    <p><i class="fa fa-folder-open-o"></i> <a href="#">{{$list->Job}}</a></p>
                                 </div>
                                 <div class="jp_recent_resume_btn_wrapper">
                                     <ul>
-                                    <li><a href="candidates/{{1}}">View Profile</a></li>
+                                    <li><a href="{{route('candidate1',$list->CVID)}}">View Profile</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="jp_recent_resume_box_wrapper">
-                                <div class="jp_recent_resume_img_wrapper">
-                                    <img src="images/content/resume_img2.jpg" alt="resume_img" />
-                                </div>
-                                <div class="jp_recent_resume_cont_wrapper">
-                                    <h3>Ajay Suryavanshi</h3>
-                                    <p><i class="fa fa-folder-open-o"></i> <a href="#">UI Designer</a></p>
-                                </div>
-                                <div class="jp_recent_resume_btn_wrapper">
-                                    <ul>
-                                        <li><a href="#">View Profile</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="jp_recent_resume_box_wrapper">
-                                <div class="jp_recent_resume_img_wrapper">
-                                    <img src="images/content/resume_img3.jpg" alt="resume_img" />
-                                </div>
-                                <div class="jp_recent_resume_cont_wrapper">
-                                    <h3>Merry Foster</h3>
-                                    <p><i class="fa fa-folder-open-o"></i> <a href="#">UI Designer</a></p>
-                                </div>
-                                <div class="jp_recent_resume_btn_wrapper">
-                                    <ul>
-                                        <li><a href="#">View Profile</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="jp_recent_resume_box_wrapper">
-                                <div class="jp_recent_resume_img_wrapper">
-                                    <img src="images/content/resume_img4.jpg" alt="resume_img" />
-                                </div>
-                                <div class="jp_recent_resume_cont_wrapper">
-                                    <h3>Dashrath Singh</h3>
-                                    <p><i class="fa fa-folder-open-o"></i> <a href="#">UI Designer</a></p>
-                                </div>
-                                <div class="jp_recent_resume_btn_wrapper">
-                                    <ul>
-                                        <li><a href="#">View Profile</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="jp_recent_resume_box_wrapper">
-                                <div class="jp_recent_resume_img_wrapper">
-                                    <img src="images/content/resume_img5.jpg" alt="resume_img" />
-                                </div>
-                                <div class="jp_recent_resume_cont_wrapper">
-                                    <h3>Farhan Shaikh</h3>
-                                    <p><i class="fa fa-folder-open-o"></i> <a href="#">UI Designer</a></p>
-                                </div>
-                                <div class="jp_recent_resume_btn_wrapper">
-                                    <ul>
-                                    <li><a href="#">View Profile</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="jp_recent_resume_box_wrapper">
-                                <div class="jp_recent_resume_img_wrapper">
-                                    <img src="images/content/resume_img1.jpg" alt="resume_img" />
-                                </div>
-                                <div class="jp_recent_resume_cont_wrapper">
-                                    <h3>Akshay Handge</h3>
-                                    <p><i class="fa fa-folder-open-o"></i> <a href="#">UI Designer</a></p>
-                                </div>
-                                <div class="jp_recent_resume_btn_wrapper">
-                                    <ul>
-                                        <li><a href="#">View Profile</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="jp_recent_resume_box_wrapper">
-                                <div class="jp_recent_resume_img_wrapper">
-                                    <img src="images/content/resume_img2.jpg" alt="resume_img" />
-                                </div>
-                                <div class="jp_recent_resume_cont_wrapper">
-                                    <h3>Ajay Suryavanshi</h3>
-                                    <p><i class="fa fa-folder-open-o"></i> <a href="#">UI Designer</a></p>
-                                </div>
-                                <div class="jp_recent_resume_btn_wrapper">
-                                    <ul>
-                                        <li><a href="#">View Profile</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="jp_recent_resume_box_wrapper">
-                                <div class="jp_recent_resume_img_wrapper">
-                                    <img src="images/content/resume_img3.jpg" alt="resume_img" />
-                                </div>
-                                <div class="jp_recent_resume_cont_wrapper">
-                                    <h3>Merry Foster</h3>
-                                    <p><i class="fa fa-folder-open-o"></i> <a href="#">UI Designer</a></p>
-                                </div>
-                                <div class="jp_recent_resume_btn_wrapper">
-                                    <ul>
-                                        <li><a href="#">View Profile</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                    @endforeach    
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="jp_adp_choose_resume_bottom_btn_post jp_adp_choose_resume_bottom_btn_post2">
                                 <ul>
@@ -504,33 +394,7 @@ Purchase:
             </div>
         </div>
     </div>
-    <!-- jp listing sidebar Wrapper End -->
-    <!-- jp downlord Wrapper Start -->
-    <div class="jp_downlord_main_wrapper">
-        <div class="jp_downlord_img_overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hidden-sm hidden-xs">
-                    <div class="jp_down_mob_img_wrapper">
-                        <img src="images/content/mobail.png" alt="mobail_img" />
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="ss_download_wrapper_details">
-                        <h1><span>Download</span><br>Job Portal App Now!</h1>
-                        <p>Fast, Simple & Delightful. All it takes is 30 seconds to Download.</p>
-                        <a href="#" class="ss_appstore"><span><i class="fa fa-apple" aria-hidden="true"></i></span> App Store</a>
-                        <a href="#" class="ss_playstore"><span><i class="fa fa-android" aria-hidden="true"></i></span> Play Store</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 visible-sm visible-xs">
-                    <div class="jp_down_mob_img_wrapper">
-                        <img src="images/content/mobail.png" class="img-responsive" alt="mobail_img" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <!-- jp downlord Wrapper End -->
     <!-- jp Newsletter Wrapper Start -->
     <div class="jp_main_footer_img_wrapper">

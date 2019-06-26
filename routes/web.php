@@ -24,25 +24,18 @@ Route::get('logout', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('candidates')->group(function () {
-    Route::get('/', function () {
-        return view('everjob.candidate.candidateListing');
-    })->name('candidates');
-    Route::get('/{id}', function ($id) {
-        return view('everjob.candidate.candidateDetail');
-    });
+    Route::get('/', 'PagesController@getcandidates')->name('candidates');
+    Route::get('/{id}', 'PagesController@getcandidateinfo')->name('candidate1','id');
 });
+
 Route::prefix('companies')->group(function(){
     Route::get('/','PagesController@getcompanies')->name('company');
     Route::get('/{id}', 'PagesController@getcompanyinfo')->name('company','id');
 });
 
-Route::prefix('jobs')->group(function () {
-    Route::get('/', function () {
-        return view('everjob.job.job');
-    })->name('job');
-    Route::get('/{id}', function ($id) {
-        return view('everjob.job.jobDetail');
-    });
+Route::prefix('jobs')->group(function(){
+    Route::get('/', 'PagesController@getjobs')->name('job');
+    Route::get('/{id}', 'PagesController@getjobinfo')->name('job1','id');
 });
 
 Route::get('/job-posting', function () {

@@ -72,7 +72,7 @@
                                             <li class="parent"><a href="index_vi.html">Home6</a></li>
                                         </ul>
                                     </li>
-                                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">  Job&nbsp;<i class="fa fa-angle-down"></i></a>
+                                    <li class="has-mega gc_main_navigation"><a href="{{route('job')}}" class="gc_main_navigation">  Job&nbsp;<i class="fa fa-angle-down"></i></a>
                                         <!-- mega menu start -->
                                         <ul>
                                             <li class="parent"><a href="listing_left.html">Listing-Left</a></li>
@@ -81,14 +81,7 @@
 
                                         </ul>
                                     </li>
-                                    <li class="parent gc_main_navigation"><a href="#" class="gc_main_navigation">candidates &nbsp;<i class="fa fa-angle-down"></i></a>
-                                        <!-- sub menu start -->
-                                        <ul>
-                                        @foreach($cates as $cate)   
-                                            <li class="parent"><a href="company_listing.html">{{$cate->name}}</a></li>
-                                        @endforeach         
-                                        </ul>
-                                        <!-- sub menu end -->
+                                    <li class="parent gc_main_navigation"><a href="{{route('candidates')}}" class="gc_main_navigation">candidates &nbsp;<i class="fa fa-angle-down"></i></a>
                                     </li>
 									<li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">  Pages&nbsp;<i class="fa fa-angle-down"></i></a>
                                         <!-- mega menu start -->
@@ -366,7 +359,7 @@
                 <div class="jp_top_jobs_category_wrapper">
                     <div class="jp_top_jobs_category">
                         <i class="fa fa-th-large"></i>
-                        <h3><a href="#">All Jobs</a></h3>
+                        <h3><a href="{{route('job')}}">All Jobs</a></h3>
                         <p>(2000+ jobs)</p>
                     </div>
                 </div>

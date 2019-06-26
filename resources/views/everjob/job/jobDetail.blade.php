@@ -41,7 +41,7 @@ Purchase:
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="jp_tittle_heading_wrapper">
                         <div class="jp_tittle_heading">
-                            <h2>HTML Developer (1-2 Yrs Exp.)</h2>
+                            <h2>{{$job->JobName}} ({{$job->Experience}} Years Exp.)</h2>
                         </div>
                         <div class="jp_tittle_breadcrumb_main_wrapper">
                             <div class="jp_tittle_breadcrumb_wrapper">
@@ -49,7 +49,7 @@ Purchase:
                                     <li><a href="#">Home</a> <i class="fa fa-angle-right"></i></li>
                                     <li><a href="#">Jobs</a> <i class="fa fa-angle-right"></i></li>
                                     <li><a href="#">Developer</a> <i class="fa fa-angle-right"></i></li>
-                                    <li>HTML Developer (1-2 Yrs Exp.)</li>
+                                    <li>{{$job->JobName}} ({{$job->Experience}} Years Exp.)</li>
                                 </ul>
                             </div>
                         </div>
@@ -67,9 +67,7 @@ Purchase:
                     <div class="jp_listing_left_sidebar_wrapper">
                         <div class="jp_job_des">
                             <h2>Job Description</h2>
-                            <p>Google is and always will be an engineering company. We hire people with a broad set of ical skills who are ready to tackle some of technology's greatest challenges and make an impact on millions, if not billions, of users.
-                                At Google, engineers not only revolutionize search, they routinely work on massive scalability and storage solutions, large-scale applications and rely new platforms for developers around the world. From AdWords to Chrome,
-                                Android to Ye, Social to Local, Google engineers are changing the world.</p>
+                            <p>{{$job->bio}}</p>
                             <ul>
                                 <li><i class="fa fa-globe"></i>&nbsp;&nbsp; <a href="#">www.example.com</a></li>
                                 <li><i class="fa fa-file-pdf-o"></i>&nbsp;&nbsp; <a href="#">Download Info</a></li>
@@ -77,24 +75,8 @@ Purchase:
                             </ul>
                         </div>
                         <div class="jp_job_res">
-                            <h2>Responsibilities</h2>
-                            <p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Curabitur aliquet quam id
-                                dui posuere blandit.</p>
-                            <ul>
-                                <li><i class="fa fa-caret-right"></i>&nbsp;&nbsp; Build next-generation web applications with a focus on the client side.</li>
-                                <li><i class="fa fa-caret-right"></i>&nbsp;&nbsp; Redesign UI's, implement new UI's, and pick up Java as necessary.</li>
-                                <li><i class="fa fa-caret-right"></i>&nbsp;&nbsp; Explore and design dynamic and compelling consumer experiences.</li>
-                                <li><i class="fa fa-caret-right"></i>&nbsp;&nbsp; Design and build scalable framework for web applications.</li>
-                            </ul>
-                        </div>
-                        <div class="jp_job_res jp_job_qua">
-                            <h2>Minimum qualifications</h2>
-                            <ul>
-                                <li><i class="fa fa-caret-right"></i>&nbsp;&nbsp; BA/BS degree in a technical field or equivalent practical experience.</li>
-                                <li><i class="fa fa-caret-right"></i>&nbsp;&nbsp; 2 years of relevant work experience in software development.</li>
-                                <li><i class="fa fa-caret-right"></i>&nbsp;&nbsp; Programming experience in C, C++ or Java.</li>
-                                <li><i class="fa fa-caret-right"></i>&nbsp;&nbsp; Experience with AJAX, HTML and CSS.</li>
-                            </ul>
+                            <h2>Document of Job</h2>
+                            <p>{{$job->Document}}</p>
                         </div>
                         <div class="jp_job_apply">
                             <h2>How To Apply</h2>
@@ -533,8 +515,8 @@ Purchase:
                                 </div>
                                 <div class="jp_job_listing_single_post_right_cont">
                                     <div class="jp_job_listing_single_post_right_cont_wrapper">
-                                        <h4>HTML Developer (1 - 2 Yrs Exp.)</h4>
-                                        <p>Webstrot Technology Pvt. Ltd.</p>
+                                        <h4>{{$job->JobName}} ({{$job->Experience}} Exp.)</h4>
+                                        <p>{{$job->CompanyAdd}}</p>
                                     </div>
                                 </div>
                                 <div class="jp_job_post_right_overview_btn_wrapper">
@@ -553,7 +535,7 @@ Purchase:
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
                                                 <li>Date Posted:</li>
-                                                <li>Octomber 02, 2017</li>
+                                                <li>{{$job->RegDate}}</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -564,7 +546,7 @@ Purchase:
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
                                                 <li>Location:</li>
-                                                <li>Los Angeles Califonia PO, 455001</li>
+                                                <li>{{$job->CompanyAdd}}</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -575,7 +557,7 @@ Purchase:
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
                                                 <li>Job Title:</li>
-                                                <li>HTML Developer</li>
+                                                <li>{{$job->JobName}}</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -585,8 +567,8 @@ Purchase:
                                         </div>
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
-                                                <li>Hours:</li>
-                                                <li>40h / Week</li>
+                                                <li>Gender:</li>
+                                                <li>{{$job->Gender}}</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -597,7 +579,7 @@ Purchase:
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
                                                 <li>Salary:</li>
-                                                <li>$12K - 15k P.A.</li>
+                                                <li>{{$job->Amount}} P.A.</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -607,8 +589,8 @@ Purchase:
                                         </div>
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
-                                                <li>Category:</li>
-                                                <li>Developer</li>
+                                                <li>JobType:</li>
+                                                <li>{{$job->JobType}}</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -619,7 +601,7 @@ Purchase:
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
                                                 <li>Experience:</li>
-                                                <li>1+ Years Experience</li>
+                                                <li>{{$job->Experience}} Years Experience</li>
                                             </ul>
                                         </div>
                                     </div>
