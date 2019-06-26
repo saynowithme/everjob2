@@ -11,17 +11,20 @@
 |
 */
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 9426ef162482f4a170dc7b127e1992e956d084a7
 
 
 Auth::routes(['verify' => true]);
-
 
 Route::get('logout', function () {
     Auth::logout();
     return redirect('/login');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::prefix('candidates')->group(function () {
     Route::get('/', function () {
