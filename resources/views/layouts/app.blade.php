@@ -39,15 +39,6 @@ Purchase:
     @yield('content')
     <!-- jp footer Wrapper End -->
 	<!--main js file start-->
-    <script src="js/jquery_min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/jquery.menu-aim.js"></script>
-    <script src="js/jquery.countTo.js"></script>
-    <script src="js/jquery.inview.min.js"></script>
-    <script src="js/owl.carousel.js"></script>
-    <script src="js/modernizr.js"></script>
-    <script src="js/jquery.magnific-popup.js"></script>
-    <script src="js/custom_II.js"></script>
     <!--main js file end-->
 </body>
 </html>

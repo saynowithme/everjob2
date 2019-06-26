@@ -55,35 +55,34 @@
 
                             <!-- Tab panes -->
                             <div class="tab-content">
-                                <div class="tab-pane fade in active register_left_form" id="contentOne-1">
-									
+                                <form action="{{ url('handle-form') }}" class="tab-pane fade in active register_left_form" id="contentOne-1" method="post">
+									{{ csrf_field() }}
                                     <div class="jp_regiter_top_heading">
                                         <p>Fields with * are mandetory </p>
                                     </div>
                                     <div class="row">
                                         <!--Form Group-->
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" name="field-name" value="" placeholder="Username*">
+                                            <input type="text" name="name" value="" placeholder="FullName*">
                                         </div>
 
                                         <!--Form Group-->
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
 
-                                            <input type="text" name="field-name" value="" placeholder="Email*">
+                                            <input type="text" name="email" value="" placeholder="Email*">
                                         </div>
                                         <!--Form Group-->
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
 
-                                            <input type="password" name="field-name" value="" placeholder=" password*">
+                                            <input type="password" name="password" value="" placeholder=" password*">
                                         </div>
                                         <!--Form Group-->
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                            <input type="password" name="field-name" value="" placeholder="re-enter password*">
+                                            <input type="password" name="re-password" value="" placeholder="re-enter password*">
                                         </div>
                                         <!--Form Group-->
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
-
-                                            <input type="text" name="field-name" value="" placeholder="current location">
+                                            <input type="text" name="location" value="" placeholder="current location">
 
                                         </div>
                                         <!--Form Group-->
@@ -93,10 +92,11 @@
                                         </div>
                                         <!--Form Group-->
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
-
-                                            <input type="text" name="field-name" value="" placeholder="phone">
+                                            <input type="text" name="phone" value="" placeholder="phone">
                                         </div>
-
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12" style="display:none">
+                                            <input type="text" name="userType" value="1" placeholder="phone">
+                                        </div>
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <div class="check-box text-center">
                                                 <input type="checkbox" name="shipping-option" id="account-option_1"> &ensp;
@@ -104,63 +104,76 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="login_btn_wrapper register_btn_wrapper login_wrapper ">
-                                        <a href="#" class="btn btn-primary login_btn"> register </a>
+                                    @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
                                     </div>
-                                    <div class="login_message">
-                                        <p>Already a member? <a href="#"> Login Here </a> </p>
+                                    @endif
+                                    <div class="login_btn_wrapper register_btn_wrapper login_wrapper">
+                                        <input type="submit" class="btn btn-primary login_btn" value="register">
                                     </div>
-                                </div>
+                                    <div class="login_message">     
+                                        <p>Already a member? <a href="{{route('register')}}"> Login Here </a> </p>
+                                    </div>
+                                    
+                                </form>
 
-                                <div class="tab-pane fade register_left_form" id="contentOne-2">
-
+                                <form action="{{ url('handle-form') }}" class="tab-pane fade register_left_form" id="contentOne-2" method="post">
+                                     {{ csrf_field() }}
                                     <div class="jp_regiter_top_heading">
                                         <p>Fields with * are mandetory </p>
                                     </div>
                                     <div class="row clearfix">
                                         <!--Form Group-->
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" name="field-name" value="" placeholder="Username*">
+                                            <input type="text" name="name" value="" placeholder="FullName*">
                                         </div>
                                         <!--Form Group-->
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" name="field-name" value="" placeholder="Email*">
-                                        </div>
-                                        <!--Form Group-->
-                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
-
-                                            <input type="password" name="field-name" value="" placeholder="password*">
+                                            <input type="text" name="email" value="" placeholder="Email*">
                                         </div>
                                         <!--Form Group-->
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
 
-                                            <input type="password" name="field-name" value="" placeholder="re-enter password*">
+                                            <input type="password" name="password" value="" placeholder="password*">
                                         </div>
-
                                         <!--Form Group-->
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
 
-                                            <input type="text" name="field-name" value="" placeholder="phone">
+                                            <input type="password" name="re-password" value="" placeholder="re-enter password*">
                                         </div>
 
                                         <!--Form Group-->
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
 
-                                            <input type="text" name="field-name" value="" placeholder="company name">
+                                            <input type="text" name="phone" value="" placeholder="phone">
+                                        </div>
+
+                                        <!--Form Group-->
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+
+                                            <input type="text" name="company-name" value="" placeholder="company name">
 
                                         </div>
 
                                         <!--Form Group-->
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
 
-                                            <input type="text" name="field-name" value="" placeholder="website">
+                                            <input type="text" name="website" value="" placeholder="website">
 
                                         </div>
                                         <!--Form Group-->
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
 
-                                            <input type="text" name="field-name" value="" placeholder="address line">
+                                            <input type="text" name="address" value="" placeholder="address line">
+                                        </div>
+                                        
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12" style="display:none">
+                                            <input type="text" name="userType" value="2" placeholder="phone">
                                         </div>
 
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -170,15 +183,23 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="login_btn_wrapper register_btn_wrapper login_wrapper ">
-                                        <a href="#" class="btn btn-primary login_btn"> register </a>
+                                    @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
                                     </div>
+                                    @endif
+                                    <div class="login_btn_wrapper register_btn_wrapper login_wrapper ">
+                                        <input type="submit" class="btn btn-primary login_btn" value="register">
+                                    </div>
+                                    
                                     <div class="login_message">
                                         <p>Already a member? <a href="#"> Login Here </a> </p>
                                     </div>
-
-                                </div>
+                                </form>
 
                             </div>
                             <p class="btm_txt_register_form">In case you are using a public/shared computer we recommend that you logout to prevent any un-authorized access to your account</p>
@@ -317,6 +338,7 @@
             </div>
         </div>
     </div>
+    @include('includes.js_custom_page')
     <script type="text/javascript">
         function showType(fileInput) {
             let files = fileInput.files;
@@ -340,5 +362,9 @@
                 }
             }
         }
+        function AccountType(){
+
+        }
     </script>
+
 @endsection
