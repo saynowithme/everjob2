@@ -691,19 +691,19 @@
                             <div class="tab-content">
                                 <div id="grid" class="tab-pane fade in active">
                                     <div class="row">
-                                    @foreach($lists->where('CusType',2) as $list)
+                                    @foreach($lists->where('type',2) as $list)
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                             <div class="jp_job_post_main_wrapper_cont jp_job_post_grid_main_wrapper_cont">
                                                 <div class="jp_job_post_main_wrapper jp_job_post_grid_main_wrapper">
                                                     <div class="row">
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                             <div class="jp_job_post_side_img">
-                                                                <a href="{{route('company',$list->CusID)}}"><img src="images/content/job_post_img1.jpg" alt="post_img" /></a>
+                                                                <a href="{{route('company',$list->id)}}"><img src="images/content/job_post_img1.jpg" alt="post_img" /></a>
                                                             </div>
                                                             <div class="jp_job_post_right_cont jp_job_post_grid_right_cont jp_cl_job_cont">
-                                                                <h4>{{$list->CusName}}</h4>
+                                                                <h4>{{$list->name}}</h4>
                                                                 <ul>
-                                                                    <li><i class="fa fa-map-marker"></i>&nbsp; {{$list->CusAdd}}</li>
+                                                                    <li><i class="fa fa-map-marker"></i>&nbsp; {{$list->add}}</li>
                                                                 </ul>
 																<div class="jp_job_post_right_btn_wrapper jp_job_post_grid_right_btn_wrapper jp_cl_aply_btn">
 																	<ul>

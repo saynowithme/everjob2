@@ -359,9 +359,9 @@ Purchase:
 							<img src="{{asset('images/content/cs1.jpg')}}" alt="job_img">
 						</div>
 						<div class="jp_cs_com_info_img_cont">
-							<h2>{{$company->CusName}}</h2>
+							<h2>{{$company->name}}</h2>
 							<p>{{$company->technique}}</p>
-							<h3><i class="fa fa-map-marker"></i> &nbsp;&nbsp;{{$company->CusAdd}}</h3>
+							<h3><i class="fa fa-map-marker"></i> &nbsp;&nbsp;{{$company->add}}</h3>
 						</div>
 					</div>
 				</div>
@@ -377,7 +377,7 @@ Purchase:
                     <div class="jp_listing_left_sidebar_wrapper">
                         <div class="jp_job_des">
                             <h2>Company Description</h2>
-                            <p>{{$company->description}}</p>
+                            <p>{{$company->bio}}</p>
                             <ul>
                                 <li><i class="fa fa-globe"></i>&nbsp;&nbsp; <a href="#">www.example.com</a></li>
                                 <li><i class="fa fa-file-pdf-o"></i>&nbsp;&nbsp; <a href="#">Download Info</a></li>
@@ -799,7 +799,7 @@ Purchase:
                                 </div>
                                 <div class="jp_job_listing_single_post_right_cont">
                                     <div class="jp_job_listing_single_post_right_cont_wrapper">
-                                        <h4>{{$company->CusName}}</h4>
+                                        <h4>{{$company->name}}</h4>
                                         <p>{{$company->technique}}</p>
                                     </div>
                                 </div>
@@ -818,7 +818,7 @@ Purchase:
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
                                                 <li>Location:</li>
-                                                <li>{{$company->CusAdd}}</li>
+                                                <li>{{$company->add}}</li>
                                             </ul>
                                         </div>
                                     </div>

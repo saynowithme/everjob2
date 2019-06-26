@@ -27,7 +27,7 @@ class PagesController extends Controller
     public function getcompanyinfo($id)
     {
         $cates = Category::all();
-        $company = Customers::where('CusStatus',1)->where('CusID',$id)->first();
+        $company = Customers::where('status',1)->where('id',$id)->first();
         return view('everjob.company.companyDetail',['company'=>$company],['cates'=>$cates]);
     }
 }

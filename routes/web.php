@@ -31,19 +31,9 @@ Route::prefix('candidates')->group(function () {
         return view('everjob.candidate.candidateDetail');
     });
 });
-<<<<<<< HEAD
 Route::prefix('companies')->group(function(){
     Route::get('/','PagesController@getcompanies')->name('company');
     Route::get('/{id}', 'PagesController@getcompanyinfo')->name('company','id');
-=======
-Route::prefix('companies')->group(function () {
-    Route::get('/', function () {
-        return view('.everjob.company.company');
-    })->name('company');
-    Route::get('/{id}', function ($id) {
-        return view('.everjob.company.companyDetail');
-    });
->>>>>>> 302bc373ec4c935bf1a5b344ee167ec5efd6870e
 });
 
 Route::prefix('jobs')->group(function () {
