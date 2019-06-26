@@ -257,16 +257,16 @@
 
                                     @if (Auth::user()->id)
 
-                                    <!-- @if (Auth::user())
+                                    @if (Auth::user())
 
                                     <li><a href="{{ route('logout') }}"><i class="fa fa-user"></i>&nbsp; LOG OUT</a></li>
-                                    @else -->
+                                    @else
                                     <li><a href="{{ route('register') }}"><i class="fa fa-user"></i>&nbsp; SIGN UP</a></li>
                                     <li><a href="{{ route('login') }}"><i class="fa fa-sign-in"></i>&nbsp; LOGIN</a></li>
 
-                                     @endif
+                                    @endif
 
-                                    <!-- @endif -->
+                                    @endif
 
                             </ul>
                         </div>
@@ -480,13 +480,13 @@
                                 </div>
                                 <div class="jp_hiring_slider_wrapper">
                                     <div class="owl-carousel owl-theme">
-                                    @foreach($listcompanies->where('CusType',2) as $list)
+                                    @foreach($listcompanies->where('type',2) as $list)
                                         <div class="item">
                                             <div class="jp_hiring_content_main_wrapper">
                                                 <div class="jp_hiring_content_wrapper">
                                                     <img src="images/content/hiring_img1.png" alt="hiring_img" />
-                                                    <h4>{{$list->CusName}}</h4>
-                                                    <p>({{$list->CusAdd}})</p>
+                                                    <h4>{{$list->name}}</h4>
+                                                    <p>({{$list->add}})</p>
                                                     <ul>
                                                         <li><a href="#">{{$list->recruiment->count()}} Opening</a></li>
                                                     </ul>
@@ -672,7 +672,7 @@
                                         <img src="images/content/resume_logo.png" alt="logo" />
                                         <h4>Get Best Matched Jobs On your Email. Add Resume NOW!</h4>
                                         <ul>
-                                            <li><a href="#"><i class="fa fa-plus-circle"></i> &nbsp;ADD RESUME</a></li>
+                                            <li><a href="{{route('job-posting')}}"><i class="fa fa-plus-circle"></i> &nbsp;ADD RESUME</a></li>
                                         </ul>
                                     </div>
                                 </div>

@@ -36,9 +36,7 @@ Route::prefix('jobs')->group(function(){
     Route::get('/{id}', 'PagesController@getjobinfo')->name('job1','id');
 });
 
-Route::get('/job-posting', function () {
-    return view('everjob.job-posting.job-posting');
-})->name('job-posting');
+Route::get('/job-posting', 'PagesController@getpost')->name('job-posting');
 
 Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
     Route::namespace('Auth')->group(function () {

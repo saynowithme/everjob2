@@ -56,5 +56,89 @@ class PagesController extends Controller
         $cv = CV::where('CVID',$id)->first();
         return view('everjob.candidate.candidateDetail',['cv'=>$cv],['cates'=>$cates]);
     }
+
+    public function getpost()
+    {
+        $cates = Category::all();
+        return view('everjob.job-posting.job-posting',['cates'=>$cates]);
+    }
+
+    public function postAdd(Request $request)
+    {
+    	$rules= [
+    			'name'=>'required|min:3|max:200|unique:recruiment,name',
+                'address' =>'required|max:300',
+                'company' =>'required|max:300',
+                'minsalary' =>'required|max:100',
+                'maxsalary' =>'required|max:100',
+                'cate'=> 'required| integer',
+                'jobtype' =>'required|max:100',
+                'gender' =>'required|max:100',
+                'amount' =>'required|integer',
+                'exp'=> 'required',
+                'regtime'=> 'required|integer',
+                'doc'=> 'required',
+                'desc'=> 'required',
+    			];
+    	$msg = [
+    			'title.required'=>'Không được bỏ trống tiêu đề.',
+    			'title.unique' => 'Tin này đã bị trùng, vui lòng nhập lại!',
+    			'title.min'=>'Tên tin tức gồm ít nhất 3 ký tự!',
+    			'title.max'=>'Tên tin tức gồm tối đa 200 ký tự!',
+    			'des.required'=>'Không được bỏ trống tóm tắt.',
+                'des.max'=>'Tóm tắt gồm tối đa 300 ký tự!',
+    			'content.required'=>'Không được bỏ trống nội dung',
+    			'category_id.required'=> 'Không được bỏ trống chuyên mục.',
+    			'category_id.integer'=> 'Chọn sai chuyên mục.',
+    			'slug.unique' => 'Url đã tồn tại, vui lòng nhập lại tiều đề!',
+                'slug.required'=> 'Không được bỏ trống url',
+                'slug.alpha_dash'=> 'Sai định dạng slug.',
+    			];
+		$validator = Validator::make($request->all(), $rules , $msg);
+
+		if ($validator->fails()) {
+		    return redirect()->back()
+		                ->withErrors($validator)
+		                ->withInput();
+		} else {
+	    	$post = new Post();
+	    	$post->title = $request->input('title');
+	    	$post->content = $request->input('content');
+	    	$post->description = $request->input('des');
+            $post->status = 0;
+            if(Auth::user()->role =='admin'){
+                $post->status = 1;
+            }
+	    	$post->slug = $request->input('slug');
+	    	$post->user_id = Auth::user()->id;
+	    	$post->category_id = $request->input('category_id');
+	    	//Upload Image
+	    	if($request->hasFile('img_post')){
+	    		$file = $request->file('img_post');
+	    		$file_extension = $file->getClientOriginalExtension(); // Lấy đuôi của file
+	    		$file_name = $file->getClientOriginalName();
+	    		$random_file_name = str_random(4).'_'.$file_name;
+	    		while(file_exists('upload/posts/'.$random_file_name)){
+	    			$random_file_name = str_random(4).'_'.$file_name;
+	    		}
+	    		$file->move('upload/posts',$random_file_name);
+	    		// $file_upload = new File();
+	    		// $file_upload->name = $random_file_name;
+	    		// $file_upload->link = 'upload/posts/'.$random_file_name;
+	    		// $file_upload->post_id = $post->id;
+	    		// $file_upload->save();
+	    		$post->feture = 'upload/posts/'.$random_file_name;
+	    	} else $post->feture='';
+	    	$post->save();
+	    	// Inset to table tag.
+	    	
+    	}
+    	Session::flash('flash_success','Thêm tin tức thành công.');
+    	return redirect()->route('list-post');
+    }
+    // public function getsearch($key, $location, $cate)
+    // {
+    //     $list = Recruiment::where('')
+    // }
     
 }
