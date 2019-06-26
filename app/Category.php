@@ -10,6 +10,6 @@ class Category extends Model
 
     public function recruiment()
     {
-        return $this->hasMany('App\Recruitment','category_id','id');
+        return $this->hasMany('App\Recruiment','category_id','id');
     }
 }
