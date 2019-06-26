@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Recruiment;
+use App\Category;
+use App\CV;
+use App\Customers;
 
 class HomeController extends Controller
 {
@@ -23,6 +27,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $cates = Category::all(); 
+        $listcompanies = Customers::all();
+        $listjob = Recruiment::all();
+        $listresumes = CV::all();
+        return view('home',['cates'=>$cates,'listjob'=>$listjob,'listresumes'=>$listresumes,'listcompanies'=>$listcompanies]);
     }
 }

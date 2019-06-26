@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'PagesController@getindex');
+
 
 Auth::routes(['verify' => true]);
 
@@ -31,13 +31,9 @@ Route::prefix('candidates')->group(function () {
         return view('everjob.candidate.candidateDetail');
     });
 });
-Route::prefix('companies')->group(function () {
-    Route::get('/', function () {
-        return view('.everjob.company.company');
-    })->name('company');
-    Route::get('/{id}', function ($id) {
-        return view('.everjob.company.companyDetail');
-    });
+Route::prefix('companies')->group(function(){
+    Route::get('/','PagesController@getcompanies')->name('company');
+    Route::get('/{id}', 'PagesController@getcompanyinfo')->name('company','id');
 });
 
 Route::prefix('jobs')->group(function () {
