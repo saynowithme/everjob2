@@ -15,13 +15,12 @@
 
 Auth::routes(['verify' => true]);
 
-
 Route::get('logout', function () {
     Auth::logout();
     return redirect('/login');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::prefix('candidates')->group(function () {
     Route::get('/', function () {
