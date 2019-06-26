@@ -57,3 +57,7 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
         Route::post('/password/reset', 'ResetPasswordController@reset')->name('password.update');
     });
 });
+
+// Register 
+Route::get('get-form',['uses'=> 'handleRegisterController@getForm']);
+Route::post('handle-form',['uses'=>'handleRegisterController@handleRequest']);
