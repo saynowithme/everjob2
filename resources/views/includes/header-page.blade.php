@@ -5,7 +5,7 @@
                     <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-xs hidden-sm full_width">
                         <div class="gc_header_wrapper">
                             <div class="gc_logo">
-                            <a href="route('home')"><img src="{{asset('images/header/logo2.png')}}" alt="Logo" title="Job Pro" class="img-responsive"></a>
+                            <a href="{{route('home')}}"><img src="{{asset('images/header/logo2.png')}}" alt="Logo" title="Job Pro" class="img-responsive"></a>
                             </div>
                         </div>
                     </div>
@@ -37,13 +37,9 @@
                                         <ul>
                                                 <li class="parent"><a href="about.html">About-Us</a></li>
                                             <li class="parent"><a href="404_error.html">404</a></li>
-                                            <li class="parent"><a href="add_postin.html">Add-Posting</a></li>
-                                                <li class="parent"><a href="login.html">Login</a></li>
-                                            <li class="parent"><a href="register.html">Register</a></li>
                                             <li class="parent"><a href="pricing.html">Pricing</a></li>
                                         </ul>
                                     </li>
-                                    <li class="gc_main_navigation parent"><a href="contact.html" class="gc_main_navigation">Contact</a></li>
                                 </ul>
                             </div>
                             <!-- mainmenu end -->

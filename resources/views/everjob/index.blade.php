@@ -305,23 +305,24 @@
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                                 <div class="jp_form_location_wrapper">
-                                    <i class="fa fa-dot-circle-o first_icon"></i><select>
-								<option>Select Location</option>
-								<option>Select Location</option>
-								<option>Select Location</option>
-								<option>Select Location</option>
-								<option>Select Location</option>
-							</select><i class="fa fa-angle-down second_icon"></i>
+                                    <i class="fa fa-dot-circle-o first_icon"></i>
+                                    <select>
+                                        <option value="">Select Location</option>
+								        <option value="Hà Nội" >Hà Nội</option>
+								        <option>Hồ Chí Minh</option>
+								        <option>Đà Nẵng</option>
+								        <option>Hải Phòng</option>
+							         </select><i class="fa fa-angle-down second_icon"></i>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                                 <div class="jp_form_exper_wrapper">
-                                    <i class="fa fa-dot-circle-o first_icon"></i><select>
-								<option>Experience</option>
-								<option>Experience</option>
-								<option>Experience</option>
-								<option>Experience</option>
-								<option>Experience</option>
+                                    <i class="fa fa-dot-circle-o first_icon"></i>
+                            <select>
+                                    <option value="" disabled selected>Choose Categories</option>
+								@foreach($cates as $cate)   
+                                    <option value="{{$cate->name}}" class="parent">{{$cate->name}}</option>
+                                @endforeach
 							</select><i class="fa fa-angle-down second_icon"></i>
                                 </div>
                             </div>
