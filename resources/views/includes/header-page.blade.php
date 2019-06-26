@@ -32,14 +32,6 @@
                                     <li class="parent gc_main_navigation"><a href="{{route('candidates')}}" class="gc_main_navigation">candidates &nbsp;</a>
                                             
                                     </li>
-                                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">  Pages&nbsp;<i class="fa fa-angle-down"></i></a>
-                                        <!-- mega menu start -->
-                                        <ul>
-                                                <li class="parent"><a href="about.html">About-Us</a></li>
-                                            <li class="parent"><a href="404_error.html">404</a></li>
-                                            <li class="parent"><a href="pricing.html">Pricing</a></li>
-                                        </ul>
-                                    </li>
                                 </ul>
                             </div>
                             <!-- mainmenu end -->
