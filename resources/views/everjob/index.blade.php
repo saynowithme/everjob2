@@ -246,7 +246,10 @@
                                                         </li>
                                                          @if (Auth::user()->id)
                                                         <li>Logout</li>
+<<<<<<< HEAD
+=======
 														
+>>>>>>> 9426ef162482f4a170dc7b127e1992e956d084a7
                                                         @else
                                                         <li>
                                                                 <a href="{{ route('register') }}">Sign Up</a>
@@ -275,12 +278,20 @@
                     <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 hidden-sm hidden-xs">
                         <div class="jp_navi_right_btn_wrapper">
                             <ul>
+<<<<<<< HEAD
+                                    @if (Auth::user()->id)
+=======
                                     <!-- @if (Auth::user())
+>>>>>>> 9426ef162482f4a170dc7b127e1992e956d084a7
                                     <li><a href="{{ route('logout') }}"><i class="fa fa-user"></i>&nbsp; LOG OUT</a></li>
                                     @else -->
                                     <li><a href="{{ route('register') }}"><i class="fa fa-user"></i>&nbsp; SIGN UP</a></li>
                                     <li><a href="{{ route('login') }}"><i class="fa fa-sign-in"></i>&nbsp; LOGIN</a></li>
+<<<<<<< HEAD
+                                     @endif
+=======
                                     <!-- @endif -->
+>>>>>>> 9426ef162482f4a170dc7b127e1992e956d084a7
                             </ul>
                         </div>
                     </div>

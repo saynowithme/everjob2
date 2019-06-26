@@ -12,7 +12,6 @@
 */
 
 
-
 Auth::routes(['verify' => true]);
 
 Route::get('logout', function () {
