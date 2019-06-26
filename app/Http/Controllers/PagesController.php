@@ -138,7 +138,7 @@ class PagesController extends Controller
                 $job->RegStatus = 1;
             }
 	    	$job->save();
-	    	// Inset to table tag.
+	    	
 	    	
     	}
     	Session::flash('flash_success','Thêm thông tin tuyển dụng thành công.');
