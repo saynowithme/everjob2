@@ -5,7 +5,7 @@
                     <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-xs hidden-sm full_width">
                         <div class="gc_header_wrapper">
                             <div class="gc_logo">
-                            <a href="route('home')"><img src="{{asset('images/header/logo2.png')}}" alt="Logo" title="Job Pro" class="img-responsive"></a>
+                            <a href="{{route('home')}}"><img src="{{asset('images/header/logo2.png')}}" alt="Logo" title="Job Pro" class="img-responsive"></a>
                             </div>
                         </div>
                     </div>
@@ -27,24 +27,16 @@
                                     </ul>
                                 </div>
                                 <ul class="float_left">
+<<<<<<< HEAD
                                     <li class="has-mega gc_main_navigation"><a href="" class="gc_main_navigation">  Job&nbsp;<i class="fa fa-angle-down"></i></a>
                                     
+=======
+                                    <li class="has-mega gc_main_navigation"><a href="{{route('job')}}" class="gc_main_navigation">  Job&nbsp;</a>
+>>>>>>> 71988bb1b6ef9d38b59ba828034e5f6c8f40c627
                                     </li>
-                                    <li class="parent gc_main_navigation"><a href="{{route('candidates')}}" class="gc_main_navigation">candidates &nbsp;<i class="fa fa-angle-down"></i></a>
+                                    <li class="parent gc_main_navigation"><a href="{{route('candidates')}}" class="gc_main_navigation">candidates &nbsp;</a>
                                             
                                     </li>
-                                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">  Pages&nbsp;<i class="fa fa-angle-down"></i></a>
-                                        <!-- mega menu start -->
-                                        <ul>
-                                                <li class="parent"><a href="about.html">About-Us</a></li>
-                                            <li class="parent"><a href="404_error.html">404</a></li>
-                                            <li class="parent"><a href="add_postin.html">Add-Posting</a></li>
-                                                <li class="parent"><a href="login.html">Login</a></li>
-                                            <li class="parent"><a href="register.html">Register</a></li>
-                                            <li class="parent"><a href="pricing.html">Pricing</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="gc_main_navigation parent"><a href="contact.html" class="gc_main_navigation">Contact</a></li>
                                 </ul>
                             </div>
                             <!-- mainmenu end -->

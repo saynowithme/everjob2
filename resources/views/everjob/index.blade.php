@@ -47,20 +47,8 @@
                         <div class="header-area hidden-menu-bar stick" id="sticker">
                             <!-- mainmenu start -->
                             <div class="mainmenu">
-                                <div class="gc_right_menu">
-                                    <ul>
-                                        <li id="search_button">
-                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_3" x="0px" y="0px" viewBox="0 0 451 451" style="enable-background:new 0 0 451 451;" xml:space="preserve"><g><path id="search" d="M447.05,428l-109.6-109.6c29.4-33.8,47.2-77.9,47.2-126.1C384.65,86.2,298.35,0,192.35,0C86.25,0,0.05,86.3,0.05,192.3   s86.3,192.3,192.3,192.3c48.2,0,92.3-17.8,126.1-47.2L428.05,447c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4   C452.25,441.8,452.25,433.2,447.05,428z M26.95,192.3c0-91.2,74.2-165.3,165.3-165.3c91.2,0,165.3,74.2,165.3,165.3   s-74.1,165.4-165.3,165.4C101.15,357.7,26.95,283.5,26.95,192.3z" fill="#23c0e9"/></g></svg>
-                                        </li>
-                                        <li>
-                                            <div id="search_open" class="gc_search_box">
-                                                <input type="text" placeholder="Search here">
-                                                <button><i class="fa fa-search" aria-hidden="true"></i></button>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
                                  <ul class="float_left">
+<<<<<<< HEAD
                                     <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">  Home&nbsp;<i class="fa fa-angle-down"></i></a>
                                         <!-- mega menu start -->
                                         <ul>
@@ -105,6 +93,11 @@
                                         </ul>
                                     </li>
                                     <li class="gc_main_navigation parent"><a href="contact.html" class="gc_main_navigation">Contact</a></li>
+=======
+                                    <li class="parent gc_main_navigation"><a href="{{route('candidates')}}" class="gc_main_navigation">candidates &nbsp;</li>
+                                    
+                                    <!-- <li class="gc_main_navigation parent"><a href="contact.html" class="gc_main_navigation">Contact</a></li> -->
+>>>>>>> 71988bb1b6ef9d38b59ba828034e5f6c8f40c627
                                 </ul>
                             </div>
                             <!-- mainmenu end -->
@@ -239,7 +232,6 @@
                                                         </li>
                                                          @if (Auth::user()->id)
                                                         <li>Logout</li>
-														
                                                         @else
                                                         <li>
                                                                 <a href="{{ route('register') }}">Sign Up</a>
@@ -268,12 +260,20 @@
                     <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 hidden-sm hidden-xs">
                         <div class="jp_navi_right_btn_wrapper">
                             <ul>
+
+                                    @if (Auth::user()->id)
+
                                     <!-- @if (Auth::user())
+>>>>>>> 9426ef162482f4a170dc7b127e1992e956d084a7
                                     <li><a href="{{ route('logout') }}"><i class="fa fa-user"></i>&nbsp; LOG OUT</a></li>
                                     @else -->
                                     <li><a href="{{ route('register') }}"><i class="fa fa-user"></i>&nbsp; SIGN UP</a></li>
                                     <li><a href="{{ route('login') }}"><i class="fa fa-sign-in"></i>&nbsp; LOGIN</a></li>
+
+                                     @endif
+
                                     <!-- @endif -->
+
                             </ul>
                         </div>
                     </div>
@@ -298,23 +298,24 @@
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                                 <div class="jp_form_location_wrapper">
-                                    <i class="fa fa-dot-circle-o first_icon"></i><select>
-								<option>Select Location</option>
-								<option>Select Location</option>
-								<option>Select Location</option>
-								<option>Select Location</option>
-								<option>Select Location</option>
-							</select><i class="fa fa-angle-down second_icon"></i>
+                                    <i class="fa fa-dot-circle-o first_icon"></i>
+                                    <select>
+                                        <option value="">Select Location</option>
+								        <option value="Hà Nội" >Hà Nội</option>
+								        <option>Hồ Chí Minh</option>
+								        <option>Đà Nẵng</option>
+								        <option>Hải Phòng</option>
+							         </select><i class="fa fa-angle-down second_icon"></i>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                                 <div class="jp_form_exper_wrapper">
-                                    <i class="fa fa-dot-circle-o first_icon"></i><select>
-								<option>Experience</option>
-								<option>Experience</option>
-								<option>Experience</option>
-								<option>Experience</option>
-								<option>Experience</option>
+                                    <i class="fa fa-dot-circle-o first_icon"></i>
+                            <select>
+                                    <option value="" disabled selected>Choose Categories</option>
+								@foreach($cates as $cate)   
+                                    <option value="{{$cate->name}}" class="parent">{{$cate->name}}</option>
+                                @endforeach
 							</select><i class="fa fa-angle-down second_icon"></i>
                                 </div>
                             </div>

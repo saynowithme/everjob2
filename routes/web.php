@@ -12,16 +12,14 @@
 */
 
 
-
 Auth::routes(['verify' => true]);
-
 
 Route::get('logout', function () {
     Auth::logout();
     return redirect('/login');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::prefix('candidates')->group(function () {
     Route::get('/', 'PagesController@getcandidates')->name('candidates');
@@ -55,5 +53,4 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
         Route::get('/password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');
         Route::post('/password/reset', 'ResetPasswordController@reset')->name('password.update');
     });
-    Route::get('/', 'HomeController@index')->name('home')->middleware('guard.verified:admin');
 });
