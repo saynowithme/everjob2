@@ -47,12 +47,12 @@
                                                         </li>
                                                         <!-- .has-children -->
                                                         <li >
-                                                            <a href="{{route('candidates')}}">Jobs</a>
+                                                            <a href="{{route('job')}}">Jobs</a>
                                                             <!-- .cd-secondary-dropdown -->
                                                         </li>
                                                         <!-- .has-children -->
                                                         <li >
-                                                            <a href="{{route('candidates')}}">Company</a>
+                                                            <a href="#">Company</a>
                                                             <!-- .cd-secondary-dropdown -->
                                                         </li>
                                                         <!-- .has-children -->

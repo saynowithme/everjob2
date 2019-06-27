@@ -3,10 +3,10 @@
 @section('content')
 
  <!-- preloader Start -->
- <div id="preloader">
-    <div id="status"><img src="images/header/loadinganimation.gif" id="preloader_image" alt="loader">
+     <div id="preloader">
+        <div id="status"><img src="images/header/loadinganimation.gif" id="preloader_image" alt="loader">
+        </div>
     </div>
-</div>
 <!-- Top Scroll End -->
 <!-- Top Header Wrapper Start -->
 <!-- Top Header Wrapper End -->
