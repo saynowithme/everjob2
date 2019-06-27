@@ -30,7 +30,8 @@ class HomeController extends Controller
         $cates = Category::all(); 
         $listcompanies = Customers::all();
         $listjob = Recruiment::all();
+        $listjobhots = Recruiment::where('LevelHot',3);
         $listresumes = CV::all();
-        return view('home',['cates'=>$cates,'listjob'=>$listjob,'listresumes'=>$listresumes,'listcompanies'=>$listcompanies]);
+        return view('home',['cates'=>$cates,'listjob'=>$listjob,'listresumes'=>$listresumes,'listcompanies'=>$listcompanies,'listjobhots'=>$listjobhots]);
     }
 }

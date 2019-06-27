@@ -53,12 +53,35 @@
 	<div class="jp_adp_main_section_wrapper">
 		<div class="container">
 			<div class="row">
+            @if(count($errors)>0)
+             <div class="alert alert-danger">
+                @foreach($errors->all() as $err)
+                {{ $err }}<br>
+                @endforeach
+            </div>
+            @endif
+            @if(session('flash_success'))
+                <div class="alert alert-success">
+                    <strong>Thành Công! </strong>{{ session('flash_success') }}
+                </div>
+                @endif
+                 @if(session('flash_err'))
+                <div class="alert alert-danger">
+                    <strong>Cảnh Báo! </strong>{{ session('flash_err') }}
+                </div>
+                @endif
+            <form action="" method="POST">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 					<div class="jp_adp_form_heading_wrapper">
 						<h2>Job Details</h2>
 					</div>
 					<div class="jp_adp_form_wrapper">
+<<<<<<< HEAD
 						<input type="text" name="name" placeholder="Job Title">
+=======
+						<input type="text" name="name" value="{{ old('name')}}" placeholder="Job Title">
+>>>>>>> f44ef31b3d6b1a4e5bc02ee200e53c3b7f0c106a
 					</div>
 					<div class="jp_adp_form_wrapper">
 						<select name="city">
@@ -68,7 +91,11 @@
 						</select>
 					</div>
                     <div class="jp_adp_form_wrapper">
+<<<<<<< HEAD
                         <input type="text" name="phone" value="{{ old('name')}}" placeholder="Contact (Number Phone)">
+=======
+                        <input type="text" name="phone" value="{{ old('phone')}}" placeholder="Contact (Number Phone)">
+>>>>>>> f44ef31b3d6b1a4e5bc02ee200e53c3b7f0c106a
 					</div>
                     <div class="jp_adp_form_wrapper">
                         <input type="text" name="address" value="{{ old('address')}}" placeholder="Address">
@@ -133,6 +160,7 @@
 						</ul>
 					</div>
 				</div>
+            </form>
 			</div>
 		</div>
 	</div>

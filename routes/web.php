@@ -36,7 +36,16 @@ Route::prefix('jobs')->group(function(){
     Route::get('/{id}', 'PagesController@getjobinfo')->name('job1','id');
 });
 
+<<<<<<< HEAD
 Route::get('/job-posting', 'PagesController@getpost')->name('job-posting');
+=======
+Route::prefix('job-posting')->group(function(){
+    Route::get('/', 'PagesController@getpost')->name('job-posting');
+    Route::post('/', 'PagesController@postAdd');
+});
+
+
+>>>>>>> f44ef31b3d6b1a4e5bc02ee200e53c3b7f0c106a
 
 Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
     Route::namespace('Auth')->group(function () {
@@ -52,3 +61,7 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
         Route::post('/password/reset', 'ResetPasswordController@reset')->name('password.update');
     });
 });
+
+// Register 
+Route::get('get-form',['uses'=> 'handleRegisterController@getForm']);
+Route::post('handle-form',['uses'=>'handleRegisterController@handleRequest']);

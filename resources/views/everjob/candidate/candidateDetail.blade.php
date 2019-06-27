@@ -107,6 +107,7 @@
                                         <td class="td-w25">Birthday</td>
                                         <td class="td-w10">:</td>
                                         <td class="td-w65">{{$cv->Birthday}}</td>
+<<<<<<< HEAD
                                     </tr>
                                     <tr>
                                         <td class="td-w25">Gender</td>
@@ -126,7 +127,23 @@
                                         <td class="td-w25">Experience</td>
                                         <td class="td-w10">:</td>
                                         <td class="td-w65">{{$cv->Experience}}</td>
+=======
+>>>>>>> f44ef31b3d6b1a4e5bc02ee200e53c3b7f0c106a
                                     </tr>
+                                    <tr>
+                                        <td class="td-w25">Gender</td>
+                                        <td class="td-w10">:</td>
+                                        @if($cv->Gender==1)
+                                        <td class="td-w65">Male</td>
+                                        @else
+                                        <td class="td-w65">Female</td>
+                                        @endif
+                                    </tr>
+                                    <tr>
+                                        <td class="td-w25">Qualifications</td>
+                                        <td class="td-w10">:</td>
+                                        <td class="td-w65">{{$cv->Learn}}</td>
+                                    </tr> 
                                     <tr>
                                         <td class="td-w25">Address</td>
                                         <td class="td-w10">:</td>
@@ -160,8 +177,8 @@
 					<div class="row">
 						<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
 							<div class="jp_cp_accor_heading_wrapper">
-								<h2>Education</h2>
-								<p>Proin gravida nibh vel velit quet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulpuate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt.</p>
+								<h2>Exprience</h2>
+								<p>{{$cv->Experience}}</p>
 							</div>
 						</div>
 						<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">

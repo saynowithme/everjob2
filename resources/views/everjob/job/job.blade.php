@@ -294,7 +294,70 @@
                                 </div>
                             </div>
                         </div>
+<<<<<<< HEAD
                         @include('components.listJobs')
+=======
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="tab-content">
+                                <div id="grid" class="tab-pane fade in active">
+                                    <div class="row">
+                                    @foreach($lists as $list)
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <div class="jp_job_post_main_wrapper_cont jp_job_post_grid_main_wrapper_cont">
+                                                <div class="jp_job_post_main_wrapper jp_job_post_grid_main_wrapper">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <div class="jp_job_post_side_img">
+                                                                <a href="{{route('job1',$list->RecID)}}"> <img src="images/content/job_post_img1.jpg" alt="post_img"/> </a>
+                                                            </div>
+                                                            <div class="jp_job_post_right_cont jp_job_post_grid_right_cont">
+                                                                <h4>{{$list->JobName}} ({{$list->Experience}} Exp.)</h4>
+                                                                <p>{{$list->CompanyName}}</p>
+                                                                <ul>
+                                                                    <li><i class="fa fa-cc-paypal"></i>&nbsp; {{$list->LevelGra}}$ P.A.</li>
+                                                                    <li><i class="fa fa-map-marker"></i>&nbsp; {{$list->RecAdd}}</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <div class="jp_job_post_right_btn_wrapper jp_job_post_grid_right_btn_wrapper">
+                                                                <ul>
+                                                                    <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+                                                                    <li><p>{{$list->JobType}}</p></li>
+                                                                <li><a href="{{route('job',$list->id)}}">Apply</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="jp_job_post_keyword_wrapper">
+                                                    <ul>
+                                                        <li><i class="fa fa-tags"></i>Keywords :</li>
+                                                        <li><a href="#">ui designer,</a></li>
+                                                        <li><a href="#">developer,</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach    
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-sm hidden-xs">
+                                            <div class="pager_wrapper gc_blog_pagination">
+                                                <ul class="pagination">
+                                                    <li><a href="#">Priv.</a></li>
+                                                    <li><a href="#">1</a></li>
+                                                    <li><a href="#">2</a></li>
+                                                    <li><a href="#">3</a></li>
+                                                    <li class="hidden-xs"><a href="#">4</a></li>
+                                                    <li><a href="#">Next</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+>>>>>>> f44ef31b3d6b1a4e5bc02ee200e53c3b7f0c106a
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 visible-sm visible-xs">
                     <div class="row">
