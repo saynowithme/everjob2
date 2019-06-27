@@ -18,7 +18,7 @@
                                     </li>
                                     <li class="parent gc_main_navigation"><a href="{{route('candidates')}}" class="gc_main_navigation">candidates &nbsp;</a>
                                     </li>
-                                    <li class="parent gc_main_navigation"><a href="#" class="gc_main_navigation">company &nbsp;</a>
+                                    <li class="parent gc_main_navigation"><a href="{{route('company')}}" class="gc_main_navigation">company &nbsp;</a>
                                     </li>
                                 </ul>
                             </div>
@@ -52,7 +52,7 @@
                                                         </li>
                                                         <!-- .has-children -->
                                                         <li >
-                                                            <a href="#">Company</a>
+                                                            <a href="{{route('company')}}">Company</a>
                                                             <!-- .cd-secondary-dropdown -->
                                                         </li>
                                                         <!-- .has-children -->

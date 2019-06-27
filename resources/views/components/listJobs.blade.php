@@ -18,15 +18,15 @@
                                         <ul>
                                             <li><i class="fa fa-cc-paypal"></i>&nbsp; {{$job->LevelGra}}$ P.A.</li>
                                             <li><i class="fa fa-map-marker"></i>&nbsp; {{$job->CompanyAdd}}</li>
+                                            <li><p>{{$job->JobType}}</p></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="jp_job_post_right_btn_wrapper jp_job_post_grid_right_btn_wrapper">
                                         <ul>
-                                            <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                            <li><a href="#">Part Time</a></li>
-                                        <li><a href="{{route('job',$job->id)}}">Apply</a></li>
+                                            <li><a href=""><i class="fa fa-heart-o"></i></a></li>
+                                            <li><a href="{{route('job1',$job->RecID)}}">Apply</a></li>
                                         </ul>
                                     </div>
                                 </div>

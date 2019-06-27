@@ -364,12 +364,6 @@
                                 <div class="jp_hiring_heading_wrapper jp_job_post_heading_wrapper">
                                     <h2>Recent Jobs</h2>
                                 </div>
-                                <ul class="nav nav-tabs" role="tablist">
-                                    <li role="presentation" class="active"><a href="#best" aria-controls="best" role="tab" data-toggle="tab">Featured</a></li>
-                                    <li role="presentation"><a href="#hot" aria-controls="hot" role="tab" data-toggle="tab">Remotely</a></li>
-                                    <li role="presentation"><a href="#trand" aria-controls="trand" role="tab" data-toggle="tab">Part Time</a></li>
-                                    <li role="presentation"><a href="#best" aria-controls="best" role="tab" data-toggle="tab">Full Time </a></li>
-                                </ul>
                             </div>
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane fade in active" id="best">
@@ -385,7 +379,7 @@
                                                                     <img src="images/content/job_post_img1.jpg" alt="post_img" />
                                                                 </div>
                                                                 <div class="jp_job_post_right_cont">
-                                                                    <h4>{{$list->JobName}} ({{$list->Experience}}.)</h4>
+                                                                    <h4>{{$list->JobName}} ({{$list->Experience}} Year.)</h4>
                                                                     <p>{{$list->CompanyName}}</p>
                                                                     <ul>
                                                                         <li><i class="fa fa-cc-paypal"></i>&nbsp; {{$list->LevelGra}} P.A.</li>
@@ -444,7 +438,7 @@
                                                                     <img src="images/content/job_post_img1.jpg" alt="post_img" />
                                                                 </div>
                                                                 <div class="jp_job_post_right_cont">
-                                                                    <h4>{{$list->JobName}} ({{$list->Experience}}.)</h4>
+                                                                    <h4>{{$list->JobName}} ({{$list->Experience}} Year.)</h4>
                                                                     <p>{{$list->CompanyName}}</p>
                                                                     <ul>
                                                                         <li><i class="fa fa-cc-paypal"></i>&nbsp; {{$list->LevelGra}} P.A.</li>
@@ -544,13 +538,13 @@
                                     </div>
                                     <div class="jp_spotlight_slider_wrapper">
                                         <div class="owl-carousel owl-theme">
-                                        @foreach($listjob as $list)
+                                        @foreach($listjob->where('LevelHot','>=',3) as $list)
                                             <div class="item">
                                                 <div class="jp_spotlight_slider_img_Wrapper">
                                                     <img src="images/content/spotlight_img.jpg" alt="spotlight_img" />
                                                 </div>
                                                 <div class="jp_spotlight_slider_cont_Wrapper">
-                                                    <h4>{{$list->JobName}} ({{$list->Experience}})</h4>
+                                                    <h4>{{$list->JobName}} ({{$list->Experience}} Year.)</h4>
                                                     <p>{{$list->CompanyName}}</p>
                                                     <ul>
                                                         <li><i class="fa fa-cc-paypal"></i>&nbsp; {{$list->LevelGra}} P.A.</li>
@@ -579,7 +573,8 @@
                                         <ul>
                                         @foreach($cates as $cate)
                                             <li><i class="fa fa-caret-right"></i> <a href="{{route('cate',$cate->id)}}">{{$cate->name}} <span>({{$cate->recruiment->where('RegStatus',1)->count()}})</span></a></li>
-                                        @endforeach    
+                                        @endforeach  
+                                            <li><i class="fa fa-caret-right"></i> <a href="#">View More</span></a></li>  
                                         </ul>
                                     </div>
                                 </div>

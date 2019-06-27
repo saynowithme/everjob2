@@ -522,8 +522,7 @@ Purchase:
                                 <div class="jp_job_post_right_overview_btn_wrapper">
                                     <div class="jp_job_post_right_overview_btn">
                                         <ul>
-                                            <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                            <li><a href="#">Part Time</a></li>
+                                            <li><a><i class="fa fa-heart-o"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -579,7 +578,7 @@ Purchase:
                                         <div class="jp_listing_list_icon_cont_wrapper">
                                             <ul>
                                                 <li>Salary:</li>
-                                                <li>{{$job->Amount}} P.A.</li>
+                                                <li>{{$job->LevelGra}} P.A.</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -622,33 +621,6 @@ Purchase:
         </div>
     </div>
     <!-- jp listing Single cont Wrapper End -->
-    <!-- jp downlord Wrapper Start -->
-    <div class="jp_downlord_main_wrapper">
-        <div class="jp_downlord_img_overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hidden-sm hidden-xs">
-                    <div class="jp_down_mob_img_wrapper">
-                        <img src="{{asset('images/content/mobail.png')}}" alt="mobail_img" />
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="ss_download_wrapper_details">
-                        <h1><span>Download</span><br>Job Portal App Now!</h1>
-                        <p>Fast, Simple & Delightful. All it takes is 30 seconds to Download.</p>
-                        <a href="#" class="ss_appstore"><span><i class="fa fa-apple" aria-hidden="true"></i></span> App Store</a>
-                        <a href="#" class="ss_playstore"><span><i class="fa fa-android" aria-hidden="true"></i></span> Play Store</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 visible-sm visible-xs">
-                    <div class="jp_down_mob_img_wrapper">
-                        <img src="{{asset('images/content/mobail.png')}}" class="img-responsive" alt="mobail_img" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- jp downlord Wrapper End -->
     <!-- jp Newsletter Wrapper Start -->
     <div class="jp_main_footer_img_wrapper">
         <div class="jp_newsletter_img_overlay_wrapper"></div>

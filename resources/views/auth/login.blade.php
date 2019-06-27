@@ -1,23 +1,21 @@
 @extends('layouts.app')
 
+
 @section('content')
 
- <!-- preloader Start -->
-<<<<<<< HEAD
-<div id="preloader">
-    <div id="status"><img src="images/header/loadinganimation.gif" id="preloader_image" alt="loader">
-=======
-     <div id="preloader">
-        <div id="status"><img src="images/header/loadinganimation.gif" id="preloader_image" alt="loader">
-        </div>
->>>>>>> 57a91eeff06c86d6205a022dd800775e946754b4
-    </div>
 <!-- Top Scroll End -->
 <!-- Top Header Wrapper Start -->
 <!-- Top Header Wrapper End -->
+<div id="preloader">
+    <div id="status">
+        <img src="images/header/loadinganimation.gif" id="preloader_image" alt="loader">
+    </div>
+</div>
 <!-- Header Wrapper Start -->
 @include('includes.header-page')
 <!-- Header Wrapper End -->
+<!-- preloader Start -->
+
   <!-- jp Tittle Wrapper Start -->
 <div class="jp_tittle_main_wrapper">
     <div class="jp_tittle_img_overlay"></div>

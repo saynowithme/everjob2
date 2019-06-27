@@ -28,7 +28,7 @@ Route::prefix('candidates')->group(function () {
 
 Route::prefix('companies')->group(function(){
     Route::get('/','PagesController@getcompanies')->name('company');
-    Route::get('/{id}', 'PagesController@getcompanyinfo')->name('company','id');
+    Route::get('/{id}', 'PagesController@getcompanyinfo')->name('company1','id');
 });
 
 Route::prefix('jobs')->group(function(){
@@ -42,6 +42,8 @@ Route::prefix('job-posting')->group(function(){
 });
 
 Route::post('search','PagesController@getsearch')->name('search');
+
+Route::get('job-of-company/{id}', 'PagesController@getjobsbycompany')->name('job_company','id');
 
 Route::get('category/{id}','PagesController@getcate')->name('cate','id');
 
