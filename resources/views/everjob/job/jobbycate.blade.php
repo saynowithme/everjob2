@@ -102,14 +102,8 @@
     <div class="jp_listing_sidebar_main_wrapper">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="jp_listing_heading_wrapper">
-                        <h2>We found <span>{{$listJobs->count()}}</span> @if($listJobs->count()>1) Matches @else Match @endif for you.</h2>
-                    </div>
-                </div>
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 hidden-sm hidden-xs">
                     <div class="row">
-                        @include('components.listCategories')
                         @include('components.listLocations')
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="jp_add_resume_wrapper jp_job_location_wrapper">

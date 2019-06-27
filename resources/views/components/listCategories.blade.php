@@ -11,7 +11,7 @@
                             @foreach($listCategories as $category)
                                 <p>
                                     <input @if (in_array($category->id, explode(',',request('filter-category','')))) checked="checked" @endif type="checkbox" class="job-filter" id="category-{{ $category->id }}" name="filter-category[]" value="{{$category->id }}">
-                                    <label for="category-{{ $category->id }}">{{ $category->name }} <span>(214)</span></label>
+                                    <label for="category-{{ $category->id }}">{{ $category->name }} <span>({{$category->recruiment->count()}})</span></label>
                                 </p>
                             @endforeach
                         </div>

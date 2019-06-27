@@ -41,7 +41,9 @@ Route::prefix('job-posting')->group(function(){
     Route::post('/', 'PagesController@postAdd');
 });
 
+Route::post('search','PagesController@getsearch')->name('search');
 
+Route::get('category/{id}','PagesController@getcate')->name('cate','id');
 
 Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
     Route::namespace('Auth')->group(function () {

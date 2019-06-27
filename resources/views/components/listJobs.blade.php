@@ -10,14 +10,14 @@
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="jp_job_post_side_img">
-                                        <a href="{{route('job1',$job->RecID)}}"> <img src="images/content/job_post_img1.jpg" alt="post_img"/> </a>
+                                        <a href="{{route('job1',$job->RecID)}}"> <img src="{{asset('images/content/job_post_img1.jpg')}}" alt="post_img"/> </a>
                                     </div>
                                     <div class="jp_job_post_right_cont jp_job_post_grid_right_cont">
                                         <h4>{{$job->JobName}} ({{$job->Experience}} Exp.)</h4>
                                         <p>{{$job->CompanyName}}</p>
                                         <ul>
-                                            <li><i class="fa fa-cc-paypal"></i>&nbsp; {{$job->Amount}}$ P.A.</li>
-                                            <li><i class="fa fa-map-marker"></i>&nbsp; {{$job->RecAdd}}</li>
+                                            <li><i class="fa fa-cc-paypal"></i>&nbsp; {{$job->LevelGra}}$ P.A.</li>
+                                            <li><i class="fa fa-map-marker"></i>&nbsp; {{$job->CompanyAdd}}</li>
                                         </ul>
                                     </div>
                                 </div>
