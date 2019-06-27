@@ -40,5 +40,6 @@ Purchase:
     <!-- jp footer Wrapper End -->
 	<!--main js file start-->
     <!--main js file end-->
+    @include('includes.js_custom_page')
 </body>
 </html>

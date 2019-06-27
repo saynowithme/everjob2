@@ -75,24 +75,29 @@
                                                     <a href="#0" class="cd-close">Close</a>
                                                     <ul class="cd-dropdown-content">
                                                         <li>
-                                                            <form class="cd-search">
-                                                                <input type="search" placeholder="Search...">
-                                                            </form>
+                                                            <a href="{{route('candidates')}}">Candidates</a>
+                                                            <!-- .cd-secondary-dropdown -->
+                                                        </li>
+                                                        <!-- .has-children -->
+                                                        <li >
+                                                            <a href="{{route('candidates')}}">Jobs</a>
+                                                            <!-- .cd-secondary-dropdown -->
+                                                        </li>
+                                                        <!-- .has-children -->
+                                                        <li >
+                                                            <a href="{{route('candidates')}}">Company</a>
+                                                            <!-- .cd-secondary-dropdown -->
                                                         </li>
                                                         <!-- .has-children -->
                                                         <li>
                                                             <a href="contact.html">Contact</a>
                                                         </li>
-                                                         @if (Auth::user())
-                                                        <li>Logout</li>
+                                                        @if (Auth::user())
+                                                        <li><a href="{{ route('logout') }}"><i class="fa fa-user"></i>&nbsp; LOG OUT</a></li>
                                                         @else
-                                                        <li>
-                                                                <a href="{{ route('register') }}">Sign Up</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="{{ route('login') }}">Login</a>
-                                                            </li>
-                                                        @endif
+                                                        <li><a href="{{ route('register') }}"><i class="fa fa-user"></i>&nbsp; SIGN UP</a></li>
+                                                        <li><a href="{{ route('login') }}"><i class="fa fa-sign-in"></i>&nbsp; LOGIN</a></li>
+                                                       @endif
                                                     </ul>
                                                     <!-- .cd-dropdown-content -->
 
