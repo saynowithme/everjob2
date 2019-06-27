@@ -61,3 +61,6 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
 // Register 
 Route::get('get-form',['uses'=> 'handleRegisterController@getForm']);
 Route::post('handle-form',['uses'=>'handleRegisterController@handleRequest']);
+Route::get('register-sucess', function(){
+    return view('auth.registerSuccess');
+})->name('register-success');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
+use App\Customers;
 class handleRegisterController extends Controller
 {
     /**
@@ -17,10 +18,13 @@ class handleRegisterController extends Controller
     }
     public function handleRequest(Request $request){
         $validator = Validator::make($request->all(),[
-            'name' => 'required',
+            'user-name' => 'required',
             'email' => 'required|regex:/^.+@.+$/i|unique:users',
             'password' =>'required|min:6',
-            're-password' => 'required|same:password'
+            're-password' => 'required|same:password',
+            'shipping-option' => 'required'
+        ],[
+            'shipping-option.required' => 'Terms and Conditions need to be checked'
         ]);
         if ($validator->fails()) {
             return redirect()->back()
@@ -28,7 +32,19 @@ class handleRegisterController extends Controller
                         ->withInput();
         }
         else{
-            return $request->all();
+            $user = new Customers();
+            $user->name = $request->input('user-name');
+            $user->user = $request->input('user-name');
+            $user->email = $request ->input('email');
+            $user->password = $request->input('password');
+            $user->phone = $request->input('phone');
+            $user->technique = " ";
+            $user->add = $request->input('location');
+            $user->type = $request->input('user-type');
+            $user->bio = $request->input('resume');
+            $user->status = 1;
         }
+        $user->save();
+        return redirect()->route('register-success');
     }
 }
