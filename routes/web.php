@@ -22,30 +22,21 @@ Route::get('logout', function () {
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::prefix('candidates')->group(function () {
-    Route::get('/', function () {
-        return view('everjob.candidate.candidateListing');
-    })->name('candidates');
-    Route::get('/{id}', function ($id) {
-        return view('everjob.candidate.candidateDetail');
-    });
+    Route::get('/', 'PagesController@getcandidates')->name('candidates');
+    Route::get('/{id}', 'PagesController@getcandidateinfo')->name('candidate1','id');
 });
+
 Route::prefix('companies')->group(function(){
     Route::get('/','PagesController@getcompanies')->name('company');
     Route::get('/{id}', 'PagesController@getcompanyinfo')->name('company','id');
 });
 
-Route::prefix('jobs')->group(function () {
-    Route::get('/', function () {
-        return view('everjob.job.job');
-    })->name('job');
-    Route::get('/{id}', function ($id) {
-        return view('everjob.job.jobDetail');
-    });
+Route::prefix('jobs')->group(function(){
+    Route::get('/', 'PagesController@getjobs')->name('job');
+    Route::get('/{id}', 'PagesController@getjobinfo')->name('job1','id');
 });
 
-Route::get('/job-posting', function () {
-    return view('everjob.job-posting.job-posting');
-})->name('job-posting');
+Route::get('/job-posting', 'PagesController@getpost')->name('job-posting');
 
 Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
     Route::namespace('Auth')->group(function () {
@@ -60,5 +51,4 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
         Route::get('/password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');
         Route::post('/password/reset', 'ResetPasswordController@reset')->name('password.update');
     });
-    Route::get('/', 'HomeController@index')->name('home')->middleware('guard.verified:admin');
 });

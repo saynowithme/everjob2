@@ -58,30 +58,35 @@
 						<h2>Job Details</h2>
 					</div>
 					<div class="jp_adp_form_wrapper">
-						<input type="text" placeholder="Job Title">
+						<input type="text" name="name" placeholder="Job Title">
 					</div>
 					<div class="jp_adp_form_wrapper">
-						<select>
-							<option>Job Location</option>
-							<option>Job Location</option>
-							<option>Job Location</option>
-							<option>Job Location</option>
+						<select name="city">
+							<option>Ha Noi</option>
+							<option>Ho Chi Minh</option>
+							<option>Da Nang</option>
 						</select>
+					</div>
+                    <div class="jp_adp_form_wrapper">
+                        <input type="text" name="phone" value="{{ old('name')}}" placeholder="Contact (Number Phone)">
+					</div>
+                    <div class="jp_adp_form_wrapper">
+                        <input type="text" name="address" value="{{ old('address')}}" placeholder="Address">
+					</div>
+                    <div class="jp_adp_form_wrapper">
+                        <input type="text" name="company" value="{{ old('company')}}" placeholder="Company">
 					</div>
 					<div class="row">
 						<div class="col-lg-6 col-md-6 col-md-6 col-xs-12">
 							<div class="jp_adp_form_wrapper">
-								<input type="text" placeholder="Salary Min">
+								<input type="text" name="minsalary" value="{{ old('minsalary')}}" placeholder="Salary Min">
 							</div>
 						</div>
 						<div class="col-lg-6 col-md-6 col-md-6 col-xs-12">
 							<div class="jp_adp_form_wrapper">
-								<input type="text" placeholder="Salary Max">
+								<input type="text" name="maxsalary" value="{{ old('maxsalary')}}" placeholder="Salary Max">
 							</div>
 						</div>
-					</div>
-					<div class="jp_adp_form_wrapper">
-						<input type="text" placeholder="Notic Period">
 					</div>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 bottom_line_Wrapper">
@@ -89,46 +94,42 @@
 						<p>Fields with * are mandetory</p>
 					</div>
 					<div class="jp_adp_form_wrapper">
-						<select>
-							<option>Job Category</option>
-							<option>Job Category</option>
-							<option>Job Category</option>
-							<option>Job Category</option>
+						<select name="cate">
+                        @foreach($cates as $cate)
+							<option value="{{$cate->id}}">{{$cate->name}}</option>
+                        @endforeach
 						</select>
 					</div>
 					<div class="jp_adp_form_wrapper">
-						<select>
-							<option>Job Type</option>
-							<option>Job Type</option>
-							<option>Job Type</option>
-							<option>Job Type</option>
-						</select>
+                        <input type="text" name="jobtype" value="{{ old('jobtype')}}" placeholder="Job Type">
+					</div>
+                    <div class="jp_adp_form_wrapper">
+                        <input type="text" name="gender" value="{{ old('gender')}}" placeholder="Gender">
+					</div>
+                    <div class="jp_adp_form_wrapper">
+                        <input type="text" name="amount" value="{{ old('amount')}}" placeholder="Number Candidate">
 					</div>
 					<div class="jp_adp_form_wrapper">
-						<input type="text" placeholder="Skills required">
+						<input type="text" name="exp" value="{{ old('exp')}}" placeholder="Experience Require (Ex: +4 year)">
 					</div>
 					<div class="jp_adp_form_wrapper">
-						<input type="text" placeholder="Joining facilities">
+						<input type="text" name="regtime" value="{{ old('regtime')}}" placeholder="Time Register">
+					</div>
+				</div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="jp_adp_textarea_main_wrapper">
+						<textarea rows="7" name="doc" value="{{ old('doc')}}" placeholder="Job Document"></textarea>
 					</div>
 				</div>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="jp_adp_textarea_main_wrapper">
-						<textarea rows="7" placeholder="Job Description"></textarea>
-					</div>
-				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<div class="jp_adp_choose_resume">
-						<p>Company Post</p>
-						<div class="custom-input">
-						  <span><i class="fa fa-upload"></i> &nbsp;Upload Job Post</span>
-						  <input type="file" name="resume" id="resume" />
-						</div>
+						<textarea rows="7" name="desc" value="{{ old('desc')}}" placeholder="Job Description"></textarea>
 					</div>
 				</div>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="jp_adp_choose_resume_bottom_btn_post">
 						<ul>
-							<li><a href="#"><i class="fa fa-plus-circle"></i>&nbsp; Post a job</a></li>
+                            <li><button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i>&nbsp; Post a job</button></li>
 						</ul>
 					</div>
 				</div>
@@ -136,33 +137,7 @@
 		</div>
 	</div>
     <!-- jp ad post Wrapper End -->
-    <!-- jp downlord Wrapper Start -->
-    <div class="jp_downlord_main_wrapper">
-        <div class="jp_downlord_img_overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hidden-sm hidden-xs">
-                    <div class="jp_down_mob_img_wrapper">
-                        <img src="images/content/mobail.png" alt="mobail_img" />
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="ss_download_wrapper_details">
-                        <h1><span>Download</span><br>Job Portal App Now!</h1>
-                        <p>Fast, Simple & Delightful. All it takes is 30 seconds to Download.</p>
-                        <a href="#" class="ss_appstore"><span><i class="fa fa-apple" aria-hidden="true"></i></span> App Store</a>
-                        <a href="#" class="ss_playstore"><span><i class="fa fa-android" aria-hidden="true"></i></span> Play Store</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 visible-sm visible-xs">
-                    <div class="jp_down_mob_img_wrapper">
-                        <img src="images/content/mobail.png" class="img-responsive" alt="mobail_img" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- jp downlord Wrapper End -->
+    
     <!-- jp Newsletter Wrapper Start -->
     <div class="jp_main_footer_img_wrapper">
         <div class="jp_newsletter_img_overlay_wrapper"></div>
