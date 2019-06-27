@@ -107,6 +107,28 @@
                                         <td class="td-w25">Birthday</td>
                                         <td class="td-w10">:</td>
                                         <td class="td-w65">{{$cv->Birthday}}</td>
+<<<<<<< HEAD
+                                    </tr>
+                                    <tr>
+                                        <td class="td-w25">Gender</td>
+                                        <td class="td-w10">:</td>
+                                        @if($cv->Gender==1)
+                                        <td class="td-w65">Male</td>
+                                        @else
+                                        <td class="td-w65">Female</td>
+                                        @endif
+                                    </tr>
+                                    <tr>
+                                        <td class="td-w25">Qualifications</td>
+                                        <td class="td-w10">:</td>
+                                        <td class="td-w65">{{$cv->Learn}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td-w25">Experience</td>
+                                        <td class="td-w10">:</td>
+                                        <td class="td-w65">{{$cv->Experience}}</td>
+=======
+>>>>>>> f44ef31b3d6b1a4e5bc02ee200e53c3b7f0c106a
                                     </tr>
                                     <tr>
                                         <td class="td-w25">Gender</td>

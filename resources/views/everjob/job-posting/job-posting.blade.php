@@ -77,7 +77,11 @@
 						<h2>Job Details</h2>
 					</div>
 					<div class="jp_adp_form_wrapper">
+<<<<<<< HEAD
+						<input type="text" name="name" placeholder="Job Title">
+=======
 						<input type="text" name="name" value="{{ old('name')}}" placeholder="Job Title">
+>>>>>>> f44ef31b3d6b1a4e5bc02ee200e53c3b7f0c106a
 					</div>
 					<div class="jp_adp_form_wrapper">
 						<select name="city">
@@ -87,7 +91,11 @@
 						</select>
 					</div>
                     <div class="jp_adp_form_wrapper">
+<<<<<<< HEAD
+                        <input type="text" name="phone" value="{{ old('name')}}" placeholder="Contact (Number Phone)">
+=======
                         <input type="text" name="phone" value="{{ old('phone')}}" placeholder="Contact (Number Phone)">
+>>>>>>> f44ef31b3d6b1a4e5bc02ee200e53c3b7f0c106a
 					</div>
                     <div class="jp_adp_form_wrapper">
                         <input type="text" name="address" value="{{ old('address')}}" placeholder="Address">

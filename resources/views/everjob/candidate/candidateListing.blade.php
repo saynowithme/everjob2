@@ -129,38 +129,12 @@ Purchase:
                                     <div class="handyman_sec1_wrapper">
                                         <div class="content">
                                             <div class="box">
-                                                <p>
-                                                    <input type="checkbox" id="c1" name="cb">
-                                                    <label for="c1">Graphic Designer <span>(214)</span></label>
-
+                                                    @foreach($cates as $Category)
                                                     <p>
-                                                        <input type="checkbox" id="c2" name="cb">
-                                                        <label for="c2">Engineering Jobs <span>(514)</span></label>
+                                                        <input type="checkbox" id="category-{{ $Category->id }}" name="filter-category[]">
+                                                        <label for="category-{{ $Category->id }}">{{ $Category->name }} <span>(214)</span></label>
                                                     </p>
-                                                    <p>
-                                                        <input type="checkbox" id="c3" name="cb">
-                                                        <label for="c3">Mainframe Jobs <span>(554)</span></label>
-                                                    </p>
-                                                    <p>
-                                                        <input type="checkbox" id="c4" name="cb">
-                                                        <label for="c4">Legal Jobs <span>(457)</span></label>
-                                                    </p>
-                                                    <p>
-                                                        <input type="checkbox" id="c5" name="cb">
-                                                        <label for="c5">IT Jobs <span>(1254)</span></label>
-                                                    </p>
-                                                    <p>
-                                                        <input type="checkbox" id="c6" name="cb">
-                                                        <label for="c6">R&D Jobs <span>(554)</span></label>
-                                                    </p>
-                                                    <p>
-                                                        <input type="checkbox" id="c7" name="cb">
-                                                        <label for="c7">Government Jobs <span>(350)</span></label>
-                                                    </p>
-                                                    <p>
-                                                        <input type="checkbox" id="c8" name="cb">
-                                                        <label for="c8">PSU Jobs <span>(221)</span></label>
-                                                    </p>
+                                                @endforeach
                                             </div>
                                         </div>
                                         <ul>
@@ -176,43 +150,14 @@ Purchase:
                                     <h4>Jobs by Location</h4>
                                 </div>
                                 <div class="jp_rightside_job_categories_content">
+                                    
                                     <div class="handyman_sec1_wrapper">
                                         <div class="content">
                                             <div class="box">
-                                                <p>
-                                                    <input type="checkbox" id="c9" name="cb">
-                                                    <label for="c9">Jobs in Delhi  <span>(214)</span></label>
-
-                                                    <p>
-                                                        <input type="checkbox" id="c10" name="cb">
-                                                        <label for="c10">Jobs in Mumbai <span>(514)</span></label>
-                                                    </p>
-                                                    <p>
-                                                        <input type="checkbox" id="c11" name="cb">
-                                                        <label for="c11">Jobs in Chennai <span>(554)</span></label>
-                                                    </p>
-                                                    <p>
-                                                        <input type="checkbox" id="c12" name="cb">
-                                                        <label for="c12">Jobs in Gurgaon <span>(457)</span></label>
-                                                    </p>
-                                                    <p>
-                                                        <input type="checkbox" id="c13" name="cb">
-                                                        <label for="c13">Jobs in Noida  <span>(1254)</span></label>
-                                                    </p>
-                                                    <p>
-                                                        <input type="checkbox" id="c14" name="cb">
-                                                        <label for="c14">Jobs in Kolkata <span>(554)</span></label>
-                                                    </p>
-                                                    <p>
-                                                        <input type="checkbox" id="c15" name="cb">
-                                                        <label for="c15">Jobs in Hyderabad <span>(350)</span></label>
-                                                    </p>
-                                                    <p>
-                                                        <input type="checkbox" id="c16" name="cb">
-                                                        <label for="c16">Jobs in Pune <span>(221)</span></label>
-                                                    </p>
+                                           
                                             </div>
                                         </div>
+                                       
                                         <ul>
                                             <li><i class="fa fa-plus-circle"></i> <a href="#">SHOW MORE</a></li>
                                         </ul>
@@ -493,7 +438,7 @@ Purchase:
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <div class="jp_bottom_footer_left_cont">
-                                        <p>© 2019-20 Job Pro. All Rights Reserved.</p>
+                                        <p>© 2019-20 Ever Job. All Rights Reserved.</p>
                                     </div>
                                     <div class="jp_bottom_top_scrollbar_wrapper">
                                         <a href="javascript:" id="return-to-top"><i class="fa fa-angle-up"></i></a>

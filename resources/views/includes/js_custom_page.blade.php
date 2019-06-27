@@ -7,3 +7,4 @@
 <script src="{{asset('js/modernizr.js')}}"></script>
 <script src="{{asset('js/jquery.magnific-popup.js')}}"></script>
 <script src="{{asset('js/custom_II.js')}}"></script>
+<script src="{{asset('js/everjob.js')}}"></script>

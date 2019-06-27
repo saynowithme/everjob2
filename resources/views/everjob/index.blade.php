@@ -224,7 +224,7 @@
                                                         <li>
                                                             <a href="contact.html">Contact</a>
                                                         </li>
-                                                         @if (Auth::user()->id)
+                                                         @if (Auth::user())
                                                         <li>Logout</li>
                                                         @else
                                                         <li>
@@ -255,18 +255,12 @@
                         <div class="jp_navi_right_btn_wrapper">
                             <ul>
 
-                                    @if (Auth::user()->id)
-
                                     @if (Auth::user())
-
                                     <li><a href="{{ route('logout') }}"><i class="fa fa-user"></i>&nbsp; LOG OUT</a></li>
                                     @else
                                     <li><a href="{{ route('register') }}"><i class="fa fa-user"></i>&nbsp; SIGN UP</a></li>
                                     <li><a href="{{ route('login') }}"><i class="fa fa-sign-in"></i>&nbsp; LOGIN</a></li>
-
-                                    @endif
-
-                                    @endif
+                                   @endif
 
                             </ul>
                         </div>

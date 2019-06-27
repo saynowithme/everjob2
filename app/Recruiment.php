@@ -9,6 +9,6 @@ class Recruiment extends Model
     public $table = 'recruiments';
     public function customer()
     {
-    	return $this->belongsTo('App\Customer','CusID','RecID');
+    	return $this->belongsTo('App\Customer','CusID','RecID','city');
     }
 }
