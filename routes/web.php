@@ -41,7 +41,9 @@ Route::prefix('job-posting')->group(function(){
     Route::post('/', 'PagesController@postAdd');
 });
 
+Route::post('search','PagesController@getsearch')->name('search');
 
+Route::get('category/{id}','PagesController@getcate')->name('cate','id');
 
 Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
     Route::namespace('Auth')->group(function () {
@@ -56,6 +58,7 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
         Route::get('/password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');
         Route::post('/password/reset', 'ResetPasswordController@reset')->name('password.update');
     });
+    Route::get('/', 'HomeController@index')->name('home')->middleware('guard.verified:admin');
 });
 
 // Register 

@@ -33,6 +33,7 @@ class PagesController extends Controller
 
     public function getjobs(Request $request)
     {
+        $cates = Category::all();
         $filterCategory = request('filter_category');
         $filterLocation = request('filter_location');
         $listJobs = Recruiment::when($request->get('filter-category', false), function ($q) {
@@ -40,10 +41,9 @@ class PagesController extends Controller
         })->when($request->get('filter-location', false), function ($q) {
             return $q->whereIn('city', explode(',', request('filter-location')));
         })->get();
-
         $listCategories = Category::all();
         $listLocations = Recruiment::select('city')->distinct()->get();
-        return view('everjob.job.job', compact(['listCategories', 'listLocations',  'listJobs', 'filterCategory', 'filterLocation']));
+        return view('everjob.job.job',compact(['listCategories', 'listLocations',  'listJobs', 'filterCategory', 'filterLocation','cates']));
     }
 
     public function getjobinfo($id)
@@ -146,8 +146,62 @@ class PagesController extends Controller
         Session::flash('flash_success', 'Thêm tin tức thành công.');
         return redirect()->route('list-post');
     }
-    // public function getsearch($key, $location, $cate)
-    // {
-    //     $list = Recruiment::where('')
-    // }
+
+    public function getsearch(Request $request)
+    {
+        $cates = Category::all();
+        $filterCategory = request('filter_category');
+        $filterLocation = request('filter_location');
+        $listCategories = Category::all();
+        $listLocations = Recruiment::select('city')->distinct()->get();
+
+        $key = $request->input('key');
+        $city = $request->input('city');
+        $cate = $request->input('cate');
+        
+        if($key==null&&$city==null&&$cate==null){
+            $listJobs = Recruiment::all();
+        }
+        elseif($key==null&&$city==null){
+            $listJobs = Recruiment::where('category_id', $cate)->get();
+        }
+        elseif($city==null&&$cate==null){
+            $listJobs = Recruiment::where(function($q)use ($key){
+                $q->where('CompanyName', 'like', '%'.$key.'%')->orWhere('JobName', 'like', '%'.$key.'%')->orWhere('bio', 'like', '%'.$key.'%')->orWhere('JobType', 'like', '%'.$key.'%');
+            })->get();
+        }
+        elseif($cate==null&&$key==null){
+            $listJobs = Recruiment::where('city', $city)->get();
+        }
+        elseif($key==null){
+            $listJobs = Recruiment::where('category_id', $cate)->where('city', $city)->get();
+        }
+        elseif($city==null){
+            $listJobs = Recruiment::where('category_id', $cate)->where(function($q)use ($key){
+                $q->where('CompanyName', 'like', '%'.$key.'%')->orWhere('JobName', 'like', '%'.$key.'%')->orWhere('bio', 'like', '%'.$key.'%')->orWhere('JobType', 'like', '%'.$key.'%');
+            })->get();
+        }
+        elseif($cate==null){
+            $listJobs = Recruiment::where('city', $city)->where(function($q)use ($key){
+                $q->where('CompanyName', 'like', '%'.$key.'%')->orWhere('JobName', 'like', '%'.$key.'%')->orWhere('bio', 'like', '%'.$key.'%')->orWhere('JobType', 'like', '%'.$key.'%');
+            })->get();
+        }
+        else{
+            $listJobs = Recruiment::where('city', $city)->where('category_id', $cate)->where(function($q)use ($key){
+                $q->where('CompanyName', 'like', '%'.$key.'%')->orWhere('JobName', 'like', '%'.$key.'%')->orWhere('bio', 'like', '%'.$key.'%')->orWhere('JobType', 'like', '%'.$key.'%');
+            })->get(); 
+        }
+        return view('everjob.job.job',compact(['listCategories', 'listLocations',  'listJobs', 'filterCategory', 'filterLocation','cates']));
+    }
+
+    public function getcate($id){
+        $cates = Category::all();
+        $filterCategory = request('filter_category');
+        $filterLocation = request('filter_location');
+        $listCategories = Category::all();
+        $listLocations = Recruiment::select('city')->distinct()->get();
+        $listJobs = Recruiment::where('category_id',$id)->get();
+
+        return view('everjob.job.jobbycate',compact(['listCategories', 'listLocations',  'listJobs', 'filterCategory', 'filterLocation','cates']));
+    }
 }

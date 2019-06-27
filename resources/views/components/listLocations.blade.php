@@ -11,7 +11,7 @@
                         @foreach($listLocations as $location)
                             <p>
                                 <input @if (in_array($location->city, explode(',',request('filter-location','')))) checked="checked" @endif type="checkbox" class="job-filter-location" id="location-{{ Str::kebab($location->city) }}" name="filter-city[]" value="{{$location->city }}">
-                                <label for="location-{{ Str::kebab($location->city) }}">{{ $location->city }} <span>(214)</span></label>
+                                <label for="location-{{ Str::kebab($location->city) }}">{{ $location->city }}</label>
                             </p>
                         @endforeach
                     </div>
