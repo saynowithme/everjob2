@@ -255,26 +255,12 @@
                         <div class="jp_navi_right_btn_wrapper">
                             <ul>
 
-<<<<<<< HEAD
                                     @if (Auth::user())
-=======
-                                    @if (Auth::user()->id)
-
-                                    @if (Auth::user())
-
->>>>>>> f44ef31b3d6b1a4e5bc02ee200e53c3b7f0c106a
                                     <li><a href="{{ route('logout') }}"><i class="fa fa-user"></i>&nbsp; LOG OUT</a></li>
                                     @else
                                     <li><a href="{{ route('register') }}"><i class="fa fa-user"></i>&nbsp; SIGN UP</a></li>
                                     <li><a href="{{ route('login') }}"><i class="fa fa-sign-in"></i>&nbsp; LOGIN</a></li>
-<<<<<<< HEAD
                                    @endif
-=======
-
-                                    @endif
-
-                                    @endif
->>>>>>> f44ef31b3d6b1a4e5bc02ee200e53c3b7f0c106a
 
                             </ul>
                         </div>
