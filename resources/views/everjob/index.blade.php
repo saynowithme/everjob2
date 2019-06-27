@@ -48,48 +48,9 @@
                             <!-- mainmenu start -->
                             <div class="mainmenu">
                                  <ul class="float_left">
-                                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">  Home&nbsp;<i class="fa fa-angle-down"></i></a>
-                                        <!-- mega menu start -->
-                                        <ul>
-                                            <li class="parent"><a href="index.html">Home1</a></li>
-                                            <li class="parent"><a href="index_II.html">Home2</a></li>
-                                            <li class="parent"><a href="index_map.html">Home3</a></li>
-                                            <li class="parent"><a href="index_iv.html">Home4</a></li>
-                                            <li class="parent"><a href="index_v.html">Home5</a></li>
-                                            <li class="parent"><a href="index_vi.html">Home6</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-mega gc_main_navigation"><a href="{{route('job')}}" class="gc_main_navigation">  Job&nbsp;<i class="fa fa-angle-down"></i></a>
-                                        <!-- mega menu start -->
-                                        <ul>
-                                            <li class="parent"><a href="listing_left.html">Listing-Left</a></li>
-                                            <li class="parent"><a href="listing_right.html">Listing-Right</a></li>
-                                            <li class="parent"><a href="listing_single.html">Listing-Single</a></li>
-
-                                        </ul>
-                                    </li>
-                                    <li class="parent gc_main_navigation"><a href="{{route('candidates')}}" class="gc_main_navigation">candidates &nbsp;<i class="fa fa-angle-down"></i></a>
-                                    </li>
-									<li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">  Pages&nbsp;<i class="fa fa-angle-down"></i></a>
-                                        <!-- mega menu start -->
-                                        <ul>
-                                             <li class="parent"><a href="about.html">About-Us</a></li>
-                                            <li class="parent"><a href="404_error.html">404</a></li>
-                                            <li class="parent"><a href="add_postin.html">Add-Posting</a></li>
-											 <li class="parent"><a href="{{ route('login') }}">Login</a></li>
-                                            <li class="parent"><a href="{{ route('register') }}">Register</a></li>
-                                            <li class="parent"><a href="pricing.html">Pricing</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">  Blog&nbsp;<i class="fa fa-angle-down"></i></a>
-                                        <!-- mega menu start -->
-                                        <ul>
-                                            <li class="parent"><a href="blog_left.html">Blog-Left</a></li>
-                                            <li class="parent"><a href="blog_right.html">Blog-Right</a></li>
-                                            <li class="parent"><a href="blog_single_left.html">Blog-Single-Left</a></li>
-                                            <li class="parent"><a href="blog_single_right.html">Blog-Single-Right</a></li>
-
-                                        </ul>
+                                    <li class="has-mega gc_main_navigation"><a href="{{route('job')}}" class="gc_main_navigation">  Job&nbsp;</i></a>
+                                        <!-- mega menu start --></li>
+                                    <li class="parent gc_main_navigation"><a href="{{route('candidates')}}" class="gc_main_navigation">candidates &nbsp;</a>
                                     </li>
                                     <li class="gc_main_navigation parent"><a href="contact.html" class="gc_main_navigation">Contact</a></li>
                                 </ul>
@@ -117,108 +78,6 @@
                                                             <form class="cd-search">
                                                                 <input type="search" placeholder="Search...">
                                                             </form>
-                                                        </li>
-                                                        <li class="has-children">
-                                                            <a href="#">Home</a>
-
-                                                            <ul class="cd-secondary-dropdown is-hidden">
-                                                                <li class="go-back"><a href="#0">Menu</a></li>
-                                                                <li><a href="index.html">Home1</a></li>
-																<li><a href="index_II.html">Home2</a></li>
-																<li><a href="index_map.html">Home3</a></li>
-																<li><a href="index_iv.html">Home4</a></li>
-																<li><a href="index_v.html">Home5</a></li>
-																<li><a href="index_vi.html">Home6</a></li>
-                                                                <!-- .has-children -->
-
-                                                            </ul>
-                                                            <!-- .cd-secondary-dropdown -->
-                                                        </li>
-                                                        <!-- .has-children -->
-
-
-                                                        <li class="has-children">
-                                                            <a href="#">Listing</a>
-
-                                                            <ul class="cd-secondary-dropdown is-hidden">
-                                                                <li class="go-back"><a href="#0">Menu</a></li>
-                                                                <li>
-                                                                    <a href="listing_left.html">listing-Left</a>
-                                                                </li>
-                                                                <!-- .has-children -->
-
-                                                                <li>
-                                                                    <a href="listing_right.html">listing-Right</a>
-                                                                </li>
-                                                                <!-- .has-children -->
-
-                                                                <li>
-                                                                    <a href="listing_single.html">listing-Single</a>
-                                                                </li>
-                                                                <!-- .has-children -->
-
-                                                            </ul>
-                                                            <!-- .cd-secondary-dropdown -->
-                                                        </li>
-                                                        <!-- .has-children -->
-                                                        <li class="has-children">
-                                                            <a href="#">candidates</a>
-
-                                                            <ul class="cd-secondary-dropdown is-hidden">
-                                                                <li class="go-back"><a href="#0">Menu</a></li>
-																<li><a href="company_listing.html">Company-Listing</a></li>
-																<li><a href="company_listing_single.html">Company-Single</a></li>
-																<li><a href="candidate_listing.html">candidate-Listing</a></li>
-																<li><a href="candidate_profile.html">candidate-Profile</a></li>
-                                                                <!-- .has-children -->
-
-                                                            </ul>
-                                                            <!-- .cd-secondary-dropdown -->
-                                                        </li>
-														<li class="has-children">
-                                                            <a href="#">Pages</a>
-
-                                                            <ul class="cd-secondary-dropdown is-hidden">
-                                                                <li class="go-back"><a href="#0">Menu</a></li>
-                                                                <li><a href="about.html">About-Us</a></li>
-																<li><a href="404_error.html">404</a></li>
-																<li><a href="add_postin.html">Add-Posting</a></li>
-																<li><a href="{{ route('login') }}">Login</a></li>
-																<li><a href="{{ route('register') }}">Register</a></li>
-																<li><a href="pricing.html">Pricing</a></li>
-                                                                <!-- .has-children -->
-
-                                                            </ul>
-                                                            <!-- .cd-secondary-dropdown -->
-                                                        </li>
-                                                        <!-- .has-children -->
-                                                        <li class="has-children">
-                                                            <a href="#">Blog</a>
-
-                                                            <ul class="cd-secondary-dropdown is-hidden">
-                                                                <li class="go-back"><a href="#0">Menu</a></li>
-                                                                <li>
-                                                                    <a href="blog_left.html">Blog-Left</a>
-                                                                </li>
-                                                                <!-- .has-children -->
-
-                                                                <li>
-                                                                    <a href="blog_right.html">Blog-Right</a>
-                                                                </li>
-                                                                <!-- .has-children -->
-
-                                                                <li>
-                                                                    <a href="blog_single_left.html">Blog-Single-Left</a>
-                                                                </li>
-                                                                <!-- .has-children -->
-
-                                                                <li>
-                                                                    <a href="blog_single_right.html">Blog-Single-Left</a>
-                                                                </li>
-                                                                <!-- .has-children -->
-
-                                                            </ul>
-                                                            <!-- .cd-secondary-dropdown -->
                                                         </li>
                                                         <!-- .has-children -->
                                                         <li>
