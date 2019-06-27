@@ -578,6 +578,7 @@
                                         @foreach($cates as $cate)
                                             <li><i class="fa fa-caret-right"></i> <a href="#">{{$cate->name}} <span>({{$cate->recruiment->where('RegStatus',1)->count()}})</span></a></li>
                                         @endforeach    
+                                            <li><i class="fa fa-caret-right"></i> <a href="#">View More</span></a></li>
                                         </ul>
                                     </div>
                                 </div>
