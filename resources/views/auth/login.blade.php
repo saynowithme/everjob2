@@ -3,6 +3,14 @@
 
 @section('content')
 
+<<<<<<< HEAD
+=======
+ <!-- preloader Start -->
+<div id="preloader">
+        <div id="status"><img src="images/header/loadinganimation.gif" id="preloader_image" alt="loader">
+        </div>
+    </div>
+>>>>>>> 1fee6b26ce975dbfed3cb75ae7f6cfdb422b34b9
 <!-- Top Scroll End -->
 <!-- Top Header Wrapper Start -->
 <!-- Top Header Wrapper End -->

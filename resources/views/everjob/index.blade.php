@@ -579,8 +579,13 @@
                                         <ul>
                                         @foreach($cates as $cate)
                                             <li><i class="fa fa-caret-right"></i> <a href="{{route('cate',$cate->id)}}">{{$cate->name}} <span>({{$cate->recruiment->where('RegStatus',1)->count()}})</span></a></li>
+<<<<<<< HEAD
                                         @endforeach  
                                             <li><i class="fa fa-caret-right"></i> <a href="#">View More</span></a></li>  
+=======
+                                        @endforeach    
+                                            <li><i class="fa fa-caret-right"></i> <a href="#">View More</span></a></li>
+>>>>>>> 1fee6b26ce975dbfed3cb75ae7f6cfdb422b34b9
                                         </ul>
                                     </div>
                                 </div>
