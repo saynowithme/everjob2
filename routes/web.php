@@ -21,7 +21,7 @@ Route::get('logout', function () {
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::prefix('candidates')->group(function () {
+Route::prefix('candidates')->middleware('auth')->group(function () {
     Route::get('/', 'PagesController@getcandidates')->name('candidates');
     Route::get('/{id}', 'PagesController@getcandidateinfo')->name('candidate1','id');
 });
@@ -36,14 +36,19 @@ Route::prefix('jobs')->group(function(){
     Route::get('/{id}', 'PagesController@getjobinfo')->name('job1','id');
 });
 
-Route::prefix('job-posting')->group(function(){
+Route::prefix('job-posting')->middleware('auth')->group(function(){
     Route::get('/', 'PagesController@getpost')->name('job-posting');
     Route::post('/', 'PagesController@postAdd');
 });
 
-Route::prefix('cv-posting')->group(function(){
+Route::prefix('cv-posting')->middleware('auth')->group(function(){
     Route::get('/', 'PagesController@getpostcv')->name('cv-posting');
     Route::post('/', 'PagesController@cvAdd');
+});
+
+Route::prefix('account')->middleware('auth')->group(function(){
+    Route::get('/{id}', 'PagesController@getaccountinfo')->name('account','id');
+    Route::post('/{id}', 'PagesController@updateAccount');
 });
 
 Route::get('search','PagesController@getsearch')->name('search');
@@ -66,6 +71,13 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
         Route::post('/password/reset', 'ResetPasswordController@reset')->name('password.update');
     });
     Route::get('/', 'HomeController@index')->name('home')->middleware('guard.verified:admin');
+});
+
+//group for post_admin
+Route::prefix('post')->name('admin.')->namespace('Admin')->group(function () {
+    Route::get('/', 'HomeController@getpostactive')->name('list-post');   
+    Route::put('updateStatus', 'HomeController@updateStatus');
+    Route::get('delete/{id}', 'HomeController@getDelete');
 });
 
 // Register 

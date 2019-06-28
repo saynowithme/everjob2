@@ -87,7 +87,57 @@ class PagesController extends Controller
         $cv = CV::where('CVID', $id)->first();
         return view('everjob.candidate.candidateDetail', ['cv' => $cv], ['cates' => $cates]);
     }
-    
+
+    public function getaccountinfo($id)
+    {
+        $cates = Category::all();
+        $acc = Customers::where('id', $id)->first();
+        return view('everjob.account', ['acc' => $acc], ['cates' => $cates]);
+    }
+
+    public function updateAccount(Request $request,$id)
+    {
+    	$rules= [
+                'name'=>'required|min:3|max:200|',
+                'phone' =>'required',
+                'address' =>'required',
+                'technique' =>'required',
+                'password' =>'required|min:6',
+                'bio'=> 'required',
+    			];
+    	$msg = [
+    			'name.required'=>'Không được bỏ trống tên công việc.',
+    			'name.min'=>'Tên tin tức gồm ít nhất 3 ký tự!',
+                'name.max'=>'Tên tin tức gồm tối đa 200 ký tự!',
+                'password.required'=>'Không được bỏ trống mật khẩu.',
+    			'password.min'=>'Tên tin tức gồm ít nhất 6 ký tự!',
+                'phone.required'=>'Không được bỏ trống số điện thoại.',
+                'address.required'=>'Không được bỏ trống địa chỉ.',
+                'technique.required'=>'Không được bỏ trống chuyên ngành.',
+                'bio.required'=>'Không được bỏ trống tên công ty/giới thiệu.',
+    			];
+		$validator = Validator::make($request->all(), $rules , $msg);
+		if ($validator->fails()) {
+		    return redirect()->back()
+		                ->withErrors($validator)
+		                ->withInput();
+		} else {
+            $acc = Customers::find($id);
+            $acc->name = $request->input('name');
+            $acc->password = bcrypt($request->input('password'));
+            $acc->phone = $request->input('phone');
+	    	$acc->add = $request->input('address');
+            $acc->technique = $request->input('technique');
+            $acc->bio = $request->input('bio'); 
+	    	$acc->save();
+	    	
+	    	
+    	}
+    	Session::flash('flash_success','Cập nhật thông tin tài khoản thành công.');
+    	return redirect()->route('account',$id);
+    }
+
+
     public function getpostcv()
     {
         $cates = Category::all();

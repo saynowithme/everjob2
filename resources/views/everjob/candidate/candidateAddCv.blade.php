@@ -70,12 +70,12 @@
                 <div class="alert alert-success">
                     <strong>Thành Công! </strong>{{ session('flash_success') }}
                 </div>
-                @endif
-                 @if(session('flash_err'))
+            @endif
+            @if(session('flash_err'))
                 <div class="alert alert-danger">
                     <strong>Cảnh Báo! </strong>{{ session('flash_err') }}
                 </div>
-                @endif
+            @endif
             <form action="" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">

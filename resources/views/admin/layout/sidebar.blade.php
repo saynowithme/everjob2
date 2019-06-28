@@ -34,6 +34,19 @@
                 <li><a href="#"><i class="fa fa-circle-o"></i> Add New</a></li>
               </ul>
             </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-pencil"></i>
+                <span>Admin</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-circle-o"></i> All Admin</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Add Admin</a></li>
+              </ul>
+            </li>
           </ul>
         </section>
         <!-- /.sidebar -->

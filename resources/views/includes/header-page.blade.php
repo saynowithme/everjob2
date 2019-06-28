@@ -23,7 +23,7 @@
                                     <li class="parent gc_main_navigation"><a href="{{route('company')}}" class="gc_main_navigation">company &nbsp;</a>
                                     </li>
                                     @if (Auth::user())
-                                    <li class="parent gc_main_navigation"><a href="" class="gc_main_navigation">my account &nbsp;</a>
+                                    <li class="parent gc_main_navigation"><a href="{{route('account',Auth::user()->id)}}" class="gc_main_navigation">my account &nbsp;</a>
                                     </li>
                                     @endif
                                 </ul>

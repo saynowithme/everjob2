@@ -56,7 +56,9 @@
                                     @endif
                                     <li class="parent gc_main_navigation"><a href="{{route('company')}}" class="gc_main_navigation">company &nbsp;</a>
                                     </li>
-                                    <li class="gc_main_navigation parent"><a href="" class="gc_main_navigation">my account</a></li>
+                                    @if (Auth::user())
+                                    <li class="gc_main_navigation parent"><a href="{{route('account',Auth::user()->id)}}" class="gc_main_navigation">my account</a></li>
+                                    @endif
                                 </ul>
                             </div>
                             <!-- mainmenu end -->
@@ -352,7 +354,7 @@
                                                     <h4>{{$list->bio}}</h4>
                                                     <p>({{$list->add}})</p>
                                                     <ul>
-                                                        <li><a href="#">{{$list->recruiment->count()}} Opening</a></li>
+                                                        <li><a href="{{route('job_company',$list->id)}}">{{$list->recruiment->count()}} Opening</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -579,13 +581,8 @@
                                         <ul>
                                         @foreach($cates as $cate)
                                             <li><i class="fa fa-caret-right"></i> <a href="{{route('cate',$cate->id)}}">{{$cate->name}} <span>({{$cate->recruiment->where('RegStatus',1)->count()}})</span></a></li>
-<<<<<<< HEAD
                                         @endforeach  
                                             <li><i class="fa fa-caret-right"></i> <a href="#">View More</span></a></li>  
-=======
-                                        @endforeach    
-                                            <li><i class="fa fa-caret-right"></i> <a href="#">View More</span></a></li>
->>>>>>> 1fee6b26ce975dbfed3cb75ae7f6cfdb422b34b9
                                         </ul>
                                     </div>
                                 </div>

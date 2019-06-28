@@ -23,43 +23,30 @@
                     <thead>
                         <tr align="center">
                             <th>ID</th>
-                            <th>Tiêu để</th>
-                            <th>Nổi Bật</th>
+                            <th>Tên Công Ty</th>
+                            <th>Tên Công Việc</th>
                             <th>Trạng Thái</th>
-                            <th>Chuyên Mục</th>
-                            <th>Views</th>
                             <th>Ngày Đăng</th>
-                            <th>Ảnh Chính</th>
                             <th>Hành Động</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($posts as $post)
                         <tr class="odd gradeX">
-                            <td>{{ $post->id }}</td>
+                            <td>{{ $post->RecID }}</td>
                             <td>
-                                {{ $post->title }}
+                                {{ $post->CompanyName}}
                             </td>
-                            @if($post->hot==1)
-                                <td class="text-center hot"><i  class="fa fa-check-square-o true" aria-hidden="true"> On</i></td>
-                            @else
-                                <td class="text-center hot"><i class="fa fa-ban false" aria-hidden="true"> Off</i></td>
-                            @endif
-                            @if($post->status==1)
+                            <td>
+                                {{ $post->JobName}}
+                            </td>
+                            @if($post->RegStatus==1)
                                 <td class="text-center status"><i  class="fa fa-check-square-o true" aria-hidden="true"> On</i></td>
                             @else
                                 <td class="text-center status"><i class="fa fa-ban false" aria-hidden="true"> Off</i></td>
                             @endif
-                            <td>{{ $post->category->name }}</td>
-                            <td class="text-center">{{ $post->view }}</td>
-                            <td>{{ $post->created_at }}</td>
+                            <td>{{ $post->RegDate }}</td>
                             <td>
-                                        <img src="{{$post->feture}}" width="50px">
-                            </td>
-                            <td>
-                                <a href="admin/post/update/{{$post->id}}" class="btn btn-info btn-sm">
-                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sửa 
-                                </a>
                                 <button data-id="{{$post->id}}" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-delete">
                                     <i class="fa fa-trash" aria-hidden="true"></i> Xoá
                                 </button>
@@ -103,9 +90,8 @@
  <script type="text/javascript">
     $(document).ready(function() {
         $('#example').DataTable({'iDisplayLength': '10',"order": [[ 0, "desc" ]]});
-        @if(Auth::user()->role=='admin')
+        @if(Auth::user())
         $('.status').css('cursor', 'pointer');
-        $('.hot').css('cursor', 'pointer');
         /*Changer Status */
         $('.status').click(function(event) {
             id = $(this).parent().find("td:eq(0)").text();
@@ -115,7 +101,7 @@
                 status = 1;
             } else status = 0;
             $.ajax({
-                url: 'admin/post/updateStatus',
+                url: 'post/updateStatus',
                 type: 'Put',
                 data: {"id": id,"status":status,"_token": "{{ csrf_token() }}"},
             })
@@ -151,60 +137,13 @@
                 console.log("error");
             })
         });
-
-        /* Changer hot*/
-        $('.hot').click(function(event) {
-            id = $(this).parent().find("td:eq(0)").text();
-            var hot = $(this).find('i.fa-ban').text();
-            var divn = $(this);
-            $('.hot').css('cursor', 'pointer');
-            if(hot){
-                hot = 1;
-            } else hot = 0;
-            $.ajax({
-                url: 'admin/post/updateHot',
-                type: 'Put',
-                data: {"id": id,"hot":hot,"_token": "{{ csrf_token() }}"},
-            })
-            .done(function(data) {
-                if(data=='ok'){
-                    $.alert("Thay đổi thành công.",{
-                        autoClose: true,  closeTime: 3000, type: 'success',
-                        position: ['top-right', [45, 30]],
-                        withTime: 200,
-                        title: 'Thành Công',
-                        icon: 'glyphicon glyphicon-ok',
-                        animation: true,
-                        animShow: 'fadeIn',
-                        animHide: 'fadeOut',
-                    });
-                    if(hot == 1){
-                        divn.html('<i class="fa fa-check-square-o true" aria-hidden="true"> On</i>');
-                    } else  divn.html('<i class="fa fa-ban false" aria-hidden="true"> Off</i>');
-                } else {
-                    $.alert(data,{
-                        autoClose: true,  closeTime: 3000, type: 'danger',
-                        position: ['top-right', [45, 30]],
-                        withTime: 200,
-                        title: 'Lỗi',
-                        icon: 'glyphicon glyphicon-ok',
-                        animation: true,
-                        animShow: 'fadeIn',
-                        animHide: 'fadeOut',
-                    });
-                }
-            })
-            .fail(function() {
-                console.log("error");
-            })
-        });
         @endif
         $('#modal-delete').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget) 
           var iddel = button.data('id')
           var modal = $(this)
           modal.find('.modal-body #del-id').html(iddel);
-          modal.find('.modal-body #delete').attr('href', 'admin/post/delete/'+iddel);
+          modal.find('.modal-body #delete').attr('href', 'post/delete/'+iddel);
         })
     });   
  </script>
