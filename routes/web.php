@@ -41,7 +41,12 @@ Route::prefix('job-posting')->group(function(){
     Route::post('/', 'PagesController@postAdd');
 });
 
-Route::post('search','PagesController@getsearch')->name('search');
+Route::prefix('cv-posting')->group(function(){
+    Route::get('/', 'PagesController@getpostcv')->name('cv-posting');
+    Route::post('/', 'PagesController@cvAdd');
+});
+
+Route::get('search','PagesController@getsearch')->name('search');
 
 Route::get('job-of-company/{id}', 'PagesController@getjobsbycompany')->name('job_company','id');
 

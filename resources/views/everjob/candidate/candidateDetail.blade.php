@@ -81,16 +81,6 @@
 							</ul>
 						</div>
 					</div>
-                    <div class="jp_add_resume_wrapper jp_job_location_wrapper jp_cp_left_ad_res">
-                        <div class="jp_add_resume_img_overlay"></div>
-                        <div class="jp_add_resume_cont">
-                            <img src="{{asset('images/content/resume_logo.png')}}" alt="logo" />
-                            <h4>Get Best Matched Jobs On your Email. Add Resume NOW!</h4>
-                            <ul>
-                                <li><a href="#"><i class="fa fa-plus-circle"></i> &nbsp;ADD RESUME</a></li>
-                            </ul>
-                        </div>
-                    </div>
 				</div>
 				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 					<div class="jp_cp_right_side_wrapper">
@@ -107,7 +97,6 @@
                                         <td class="td-w25">Birthday</td>
                                         <td class="td-w10">:</td>
                                         <td class="td-w65">{{$cv->Birthday}}</td>
-<<<<<<< HEAD
                                     </tr>
                                     <tr>
                                         <td class="td-w25">Gender</td>
@@ -122,13 +111,6 @@
                                         <td class="td-w25">Qualifications</td>
                                         <td class="td-w10">:</td>
                                         <td class="td-w65">{{$cv->Learn}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td-w25">Experience</td>
-                                        <td class="td-w10">:</td>
-                                        <td class="td-w65">{{$cv->Experience}}</td>
-=======
->>>>>>> f44ef31b3d6b1a4e5bc02ee200e53c3b7f0c106a
                                     </tr>
                                     <tr>
                                         <td class="td-w25">Gender</td>

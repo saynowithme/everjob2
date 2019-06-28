@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Add-Posting</title>
+    <title>Add-CV</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta name="description" content="Job Pro" />
     <meta name="keywords" content="Job Pro" />
@@ -12,7 +12,13 @@
     <meta name="MobileOptimized" content="320" />
     @include('includes.css_custom_page')
 </head>
-
+<style>
+    .unstyled::-webkit-inner-spin-button,
+    .unstyled::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+</style>
 <body>
     <!-- preloader Start -->
     <div id="preloader">
@@ -33,13 +39,13 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="jp_tittle_heading_wrapper">
                         <div class="jp_tittle_heading">
-                            <h2>Add-Posting</h2>
+                            <h2>Add-CV</h2>
                         </div>
                         <div class="jp_tittle_breadcrumb_main_wrapper">
                             <div class="jp_tittle_breadcrumb_wrapper">
                                 <ul>
                                     <li><a href="#">Home</a> <i class="fa fa-angle-right"></i></li>
-                                    <li>Add-Posting</li>
+                                    <li>Add-CV</li>
                                 </ul>
                             </div>
                         </div>
@@ -74,75 +80,55 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 					<div class="jp_adp_form_heading_wrapper">
-						<h2>Job Details</h2>
+						<h2>CV Details</h2>
 					</div>
 					<div class="jp_adp_form_wrapper">
-						<input type="text" name="name" value="{{ old('name')}}" placeholder="Job Title">
-					</div>
-					<div class="jp_adp_form_wrapper">
-						<select name="city">
-							<option>Ha Noi</option>
-							<option>Ho Chi Minh</option>
-							<option>Da Nang</option>
-						</select>
+						<input type="text" name="name" value="{{ old('name')}}" placeholder="Full Name">
 					</div>
                     <div class="jp_adp_form_wrapper">
-                        <input type="text" name="phone" value="{{ old('phone')}}" placeholder="Contact (Phone Number)">
+                        <input type="text" name="phone" value="{{ old('phone')}}" placeholder="Phone Number">
 					</div>
                     <div class="jp_adp_form_wrapper">
                         <input type="text" name="address" value="{{ old('address')}}" placeholder="Address">
 					</div>
                     <div class="jp_adp_form_wrapper">
-                        <input type="text" name="company" value="{{ old('company')}}" placeholder="Company">
-					</div>
-					<div class="row">
-						<div class="col-lg-6 col-md-6 col-md-6 col-xs-12">
-							<div class="jp_adp_form_wrapper">
-								<input type="text" name="minsalary" value="{{ old('minsalary')}}" placeholder="Salary Min">
-							</div>
-						</div>
-						<div class="col-lg-6 col-md-6 col-md-6 col-xs-12">
-							<div class="jp_adp_form_wrapper">
-								<input type="text" name="maxsalary" value="{{ old('maxsalary')}}" placeholder="Salary Max">
-							</div>
-						</div>
+                        <input type="text" class="unstyled" name="birthday" value="{{ old('birthday')}}" placeholder="Birth Day" onfocus="(this.type='date')" onblur="(this.type='text')" id="date">
 					</div>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 bottom_line_Wrapper">
 					<div class="jp_adp_form_heading_wrapper">
 						<p>Fields with * are mandetory</p>
 					</div>
-					<div class="jp_adp_form_wrapper">
-						<select name="cate">
-                        @foreach($cates as $cate)
-							<option value="{{$cate->id}}">{{$cate->name}}</option>
-                        @endforeach
+                    <div class="jp_adp_form_wrapper">
+						<select name="gender" value="{{ old('gender')}}">
+                            <option value="" disabled selected>Choose Gender</option>
+							<option>Male</option>
+							<option>Female</option>
 						</select>
 					</div>
+                    <div class="jp_adp_form_wrapper">
+                        <input type="text" name="email" value="{{ old('email')}}" placeholder="Email">
+					</div>
 					<div class="jp_adp_form_wrapper">
-                        <input type="text" name="jobtype" value="{{ old('jobtype')}}" placeholder="Job Type">
+                        <input type="text" name="job" value="{{ old('job')}}" placeholder="Your Job">
 					</div>
                     <div class="jp_adp_form_wrapper">
-                        <input type="text" name="gender" value="{{ old('gender')}}" placeholder="Gender">
-					</div>
-                    <div class="jp_adp_form_wrapper">
-                        <input type="text" name="amount" value="{{ old('amount')}}" placeholder="Number Candidate">
-					</div>
-					<div class="jp_adp_form_wrapper">
-						<input type="text" name="exp" value="{{ old('exp')}}" placeholder="Experience Require (Ex: +4 year)">
-					</div>
-					<div class="jp_adp_form_wrapper">
-						<input type="text" name="regtime" value="{{ old('regtime')}}" placeholder="Time Register">
+                        <input type="text" name="language" value="{{ old('language')}}" placeholder="Level Language">
 					</div>
 				</div>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="jp_adp_textarea_main_wrapper">
-						<textarea rows="7" name="doc" placeholder="Job Document">{{old('doc')}}</textarea>
+						<textarea rows="7" name="learn" placeholder="Qualifications">{{ old('learn')}}</textarea>
 					</div>
 				</div>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="jp_adp_textarea_main_wrapper">
-						<textarea rows="7" name="desc" placeholder="Job Description">{{old('desc')}}</textarea>
+						<textarea rows="7" name="skill" placeholder="Skill">{{ old('skill')}}</textarea>
+					</div>
+				</div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="jp_adp_textarea_main_wrapper">
+						<textarea rows="7" name="exp" placeholder="Experience">{{ old('exp')}}</textarea>
 					</div>
 				</div>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

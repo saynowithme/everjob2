@@ -16,10 +16,16 @@
                                 <ul class="float_left">
                                     <li class="has-mega gc_main_navigation"><a href="{{route('job')}}" class="gc_main_navigation">  Job&nbsp;</a>
                                     </li>
+                                    @if (Auth::user())
                                     <li class="parent gc_main_navigation"><a href="{{route('candidates')}}" class="gc_main_navigation">candidates &nbsp;</a>
                                     </li>
+                                    @endif
                                     <li class="parent gc_main_navigation"><a href="{{route('company')}}" class="gc_main_navigation">company &nbsp;</a>
                                     </li>
+                                    @if (Auth::user())
+                                    <li class="parent gc_main_navigation"><a href="" class="gc_main_navigation">my account &nbsp;</a>
+                                    </li>
+                                    @endif
                                 </ul>
                             </div>
                             <!-- mainmenu end -->
@@ -41,10 +47,12 @@
                                                 <h2><a href="">Job<span>Pro</span></a></h2>
                                                     <a href="#0" class="cd-close">Close</a>
                                                     <ul class="cd-dropdown-content">
+                                                        @if (Auth::user())
                                                         <li>
                                                             <a href="{{route('candidates')}}">Candidates</a>
                                                             <!-- .cd-secondary-dropdown -->
                                                         </li>
+                                                        @endif
                                                         <!-- .has-children -->
                                                         <li >
                                                             <a href="{{route('job')}}">Jobs</a>
@@ -55,11 +63,11 @@
                                                             <a href="{{route('company')}}">Company</a>
                                                             <!-- .cd-secondary-dropdown -->
                                                         </li>
-                                                        <!-- .has-children -->
-                                                        <li>
-                                                            <a href="contact.html">Contact</a>
-                                                        </li>
                                                         @if (Auth::user())
+                                                        <li >
+                                                            <a href="">My Account</a>
+                                                            <!-- .cd-secondary-dropdown -->
+                                                        </li>
                                                         <li><a href="{{ route('logout') }}"><i class="fa fa-user"></i>&nbsp; LOG OUT</a></li>
                                                         @else
                                                         <li><a href="{{ route('register') }}"><i class="fa fa-user"></i>&nbsp; SIGN UP</a></li>
@@ -84,10 +92,9 @@
                                 <ul>
 
                                         @if (Auth::user())
-                                        <li><a style="width:130px;" href="{{route('job-posting')}}"><i class="fa fa-plus-circle"></i>&nbsp; Post a job</a></li>
-                                        <li><a style="width:130px;"href="{{ route('logout') }}"><i class="fa fa-user"></i>&nbsp; LOG OUT</a></li>
+                                        <li><a style="width:130px;"href="{{ route('logout') }}"><i class="fa fa-sign-out"></i>&nbsp; LOG OUT</a></li>
                                         @else
-                                        <li><a style="width:130px;" href="{{ route('register') }}"><i class="fa fa-user"></i>&nbsp; SIGN UP</a></li>
+                                        <li><a style="width:130px;" href="{{ route('register') }}"><i class="fa fa-sign-up"></i>&nbsp; SIGN UP</a></li>
                                         <li><a style="width:130px;" href="{{ route('login') }}"><i class="fa fa-sign-in"></i>&nbsp; LOGIN</a></li>
                                        @endif
 

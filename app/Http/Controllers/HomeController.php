@@ -29,9 +29,9 @@ class HomeController extends Controller
     {
         $cates = Category::all(); 
         $listcompanies = Customers::all();
-        $listjob = Recruiment::all();
+        $listjob = Recruiment::orderBy('updated_at', 'asc')->get();
         $listjobhots = Recruiment::where('LevelHot',3);
-        $listresumes = CV::all();
+        $listresumes = CV::orderBy('updated_at', 'asc')->get();
         return view('home',['cates'=>$cates,'listjob'=>$listjob,'listresumes'=>$listresumes,'listcompanies'=>$listcompanies,'listjobhots'=>$listjobhots]);
     }
 }

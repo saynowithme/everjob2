@@ -24,8 +24,10 @@ class PagesController extends Controller
 
     public function getcompanies()
     {
+        
+        $cates = Category::all();
         $lists = Customers::all();
-        return view('everjob.company.company', ['lists' => $lists]);
+        return view('everjob.company.company', ['lists' => $lists,'cates'=>$cates]);
     }
 
     public function getcompanyinfo($id)
@@ -85,13 +87,83 @@ class PagesController extends Controller
         $cv = CV::where('CVID', $id)->first();
         return view('everjob.candidate.candidateDetail', ['cv' => $cv], ['cates' => $cates]);
     }
+    
+    public function getpostcv()
+    {
+        $cates = Category::all();
+        return view('everjob.candidate.candidateAddCv', ['cates' => $cates]);
+    }
+
+    public function cvAdd(Request $request)
+    {
+    	$rules= [
+                'name'=>'required|min:3|max:200|',
+                'phone' =>'required',
+                'address' =>'required',
+                'birthday' =>'required',
+                'gender' =>'required',
+                'email'=> 'required',
+                'job' =>'required',
+                'language' =>'required',
+                'exp'=> 'required',
+                'learn'=> 'required',
+                'skill'=> 'required',
+    			];
+    	$msg = [
+    			'name.required'=>'Không được bỏ trống tên công việc.',
+    			'name.min'=>'Tên tin tức gồm ít nhất 3 ký tự!',
+                'name.max'=>'Tên tin tức gồm tối đa 200 ký tự!',
+                'birthday.required'=>'Không được bỏ trống ngày sinh.',
+                'phone.required'=>'Không được bỏ trống số điện thoại.',
+                'address.required'=>'Không được bỏ trống địa chỉ.',
+                'email.required'=>'Không được bỏ trống email.',
+                'language.required'=>'Không được bỏ trống trình độ ngoại ngữ.',
+                'job.required'=>'Không được bỏ trống công việc.',
+                'gender.required'=>'Không được bỏ trống giới tính.',
+                'exp.required'=>'Không được bỏ trống kinh nghiệm làm việc.',
+                'learn.required'=>'Không được bỏ trống trình độ học vấn.',
+                'skill.required'=>'Không được bỏ trống kĩ năng bản thân.',
+    			];
+		$validator = Validator::make($request->all(), $rules , $msg);
+		if ($validator->fails()) {
+		    return redirect()->back()
+		                ->withErrors($validator)
+		                ->withInput();
+		} else {
+            $cv = new CV();
+            $cv->user_id = Auth::user()->id;
+            $cv->Name = $request->input('name');
+            if($request->input('gender')=="Male"){
+                $cv->Gender = 1;
+            }
+            elseif($request->input('gender')=="Female"){
+                $cv->Gender = 2;
+            }
+            
+            $cv->Birthday = $request->input('birthday');
+            $cv->CusAdd = $request->input('address');
+	    	$cv->Learn = $request->input('learn');
+            $cv->LanguageLv = $request->input('language');
+            $cv->Skill = "$".$request->input('skill');
+            $cv->Experience = $request->input('exp');
+            $cv->Job = $request->input('job');
+            $cv->Phone = $request->input('phone');
+            $cv->Email = $request->input('email');
+            
+	    	$cv->save();
+	    	
+	    	
+    	}
+    	Session::flash('flash_success','Thêm thông tin ứng viên thành công.');
+    	return redirect()->route('cv-posting');
+    }
 
     public function getpost()
     {
         $cates = Category::all();
         return view('everjob.job-posting.job-posting', ['cates' => $cates]);
     }
-
+    
     public function postAdd(Request $request)
     {
     	$rules= [
@@ -182,34 +254,66 @@ class PagesController extends Controller
         $cate = $request->input('cate');
         
         if($key==null&&$city==null&&$cate==null){
-            $listJobs = Recruiment::all();
+            $listJobs = Recruiment::when($request->get('filter-category', false), function ($q) {
+                return $q->whereIn('category_id', explode(',', request('filter-category')));
+            })->when($request->get('filter-location', false), function ($q) {
+                return $q->whereIn('city', explode(',', request('filter-location')));
+            })->get();
         }
         elseif($key==null&&$city==null){
-            $listJobs = Recruiment::where('category_id', $cate)->get();
+            $listJobs = Recruiment::when($request->get('filter-category', false), function ($q) {
+                return $q->whereIn('category_id', explode(',', request('filter-category')));
+            })->when($request->get('filter-location', false), function ($q) {
+                return $q->whereIn('city', explode(',', request('filter-location')));
+            })->where('category_id', $cate)->get();
         }
         elseif($city==null&&$cate==null){
-            $listJobs = Recruiment::where(function($q)use ($key){
+            $listJobs = Recruiment::when($request->get('filter-category', false), function ($q) {
+                return $q->whereIn('category_id', explode(',', request('filter-category')));
+            })->when($request->get('filter-location', false), function ($q) {
+                return $q->whereIn('city', explode(',', request('filter-location')));
+            })->where(function($q)use ($key){
                 $q->where('CompanyName', 'like', '%'.$key.'%')->orWhere('JobName', 'like', '%'.$key.'%')->orWhere('bio', 'like', '%'.$key.'%')->orWhere('JobType', 'like', '%'.$key.'%');
             })->get();
         }
         elseif($cate==null&&$key==null){
-            $listJobs = Recruiment::where('city', $city)->get();
+            $listJobs = Recruiment::when($request->get('filter-category', false), function ($q) {
+                return $q->whereIn('category_id', explode(',', request('filter-category')));
+            })->when($request->get('filter-location', false), function ($q) {
+                return $q->whereIn('city', explode(',', request('filter-location')));
+            })->where('city', $city)->get();
         }
         elseif($key==null){
-            $listJobs = Recruiment::where('category_id', $cate)->where('city', $city)->get();
+            $listJobs = Recruiment::when($request->get('filter-category', false), function ($q) {
+                return $q->whereIn('category_id', explode(',', request('filter-category')));
+            })->when($request->get('filter-location', false), function ($q) {
+                return $q->whereIn('city', explode(',', request('filter-location')));
+            })->where('category_id', $cate)->where('city', $city)->get();
         }
         elseif($city==null){
-            $listJobs = Recruiment::where('category_id', $cate)->where(function($q)use ($key){
+            $listJobs = Recruiment::when($request->get('filter-category', false), function ($q) {
+                return $q->whereIn('category_id', explode(',', request('filter-category')));
+            })->when($request->get('filter-location', false), function ($q) {
+                return $q->whereIn('city', explode(',', request('filter-location')));
+            })->where('category_id', $cate)->where(function($q)use ($key){
                 $q->where('CompanyName', 'like', '%'.$key.'%')->orWhere('JobName', 'like', '%'.$key.'%')->orWhere('bio', 'like', '%'.$key.'%')->orWhere('JobType', 'like', '%'.$key.'%');
             })->get();
         }
         elseif($cate==null){
-            $listJobs = Recruiment::where('city', $city)->where(function($q)use ($key){
+            $listJobs = Recruiment::when($request->get('filter-category', false), function ($q) {
+                return $q->whereIn('category_id', explode(',', request('filter-category')));
+            })->when($request->get('filter-location', false), function ($q) {
+                return $q->whereIn('city', explode(',', request('filter-location')));
+            })->where('city', $city)->where(function($q)use ($key){
                 $q->where('CompanyName', 'like', '%'.$key.'%')->orWhere('JobName', 'like', '%'.$key.'%')->orWhere('bio', 'like', '%'.$key.'%')->orWhere('JobType', 'like', '%'.$key.'%');
             })->get();
         }
         else{
-            $listJobs = Recruiment::where('city', $city)->where('category_id', $cate)->where(function($q)use ($key){
+            $listJobs = Recruiment::when($request->get('filter-category', false), function ($q) {
+                return $q->whereIn('category_id', explode(',', request('filter-category')));
+            })->when($request->get('filter-location', false), function ($q) {
+                return $q->whereIn('city', explode(',', request('filter-location')));
+            })->where('city', $city)->where('category_id', $cate)->where(function($q)use ($key){
                 $q->where('CompanyName', 'like', '%'.$key.'%')->orWhere('JobName', 'like', '%'.$key.'%')->orWhere('bio', 'like', '%'.$key.'%')->orWhere('JobType', 'like', '%'.$key.'%');
             })->get(); 
         }

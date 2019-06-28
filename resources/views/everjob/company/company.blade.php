@@ -52,38 +52,41 @@
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="jp_header_form_wrapper">
-                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                <input type="text" placeholder="Keyword e.g. (Job Title, Description, Tags)">
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                                <div class="jp_form_location_wrapper">
-                                    <i class="fa fa-dot-circle-o first_icon"></i><select>
-								<option>Select Location</option>
-								<option>Select Location</option>
-								<option>Select Location</option>
-								<option>Select Location</option>
-								<option>Select Location</option>
-							</select><i class="fa fa-angle-down second_icon"></i>
+                        <form action="search" method="Post">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                    <input type="text" name="key" value="{{old('key')}}" placeholder="Keyword e.g. (Job Title, Description, Tags)">
                                 </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                                <div class="jp_form_exper_wrapper">
-                                    <i class="fa fa-dot-circle-o first_icon"></i><select>
-								<option>Experience</option>
-								<option>Experience</option>
-								<option>Experience</option>
-								<option>Experience</option>
-								<option>Experience</option>
-							</select><i class="fa fa-angle-down second_icon"></i>
+                                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                    <div class="jp_form_location_wrapper">
+                                        <i class="fa fa-dot-circle-o first_icon"></i>
+                                        <select name="city" value="{{old('city')}}">
+                                            <option value="">Select Location</option>
+                                            <option value="Hà Nội" >Ha Noi</option>
+                                            <option>Ho Chi Min</option>
+                                            <option>Da Nang</option>
+                                        </select><i class="fa fa-angle-down second_icon"></i>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                                <div class="jp_form_btn_wrapper">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-search"></i> Search</a></li>
-                                    </ul>
+                                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                    <div class="jp_form_exper_wrapper">
+                                        <i class="fa fa-dot-circle-o first_icon"></i>
+                                <select name="cate">
+                                        <option value="" disabled selected>Choose Categories</option>
+                                    @foreach($cates as $cate)   
+                                        <option value="{{$cate->id}}" class="parent">{{$cate->name}}</option>
+                                    @endforeach
+                                </select><i class="fa fa-angle-down second_icon"></i>
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                                    <div class="jp_form_btn_wrapper">
+                                        <ul>
+                                            <li><button type="submit" class="btn btn-primary"><i class="fa fa-search"></i>&nbsp; Search</button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

@@ -50,9 +50,13 @@
                                  <ul class="float_left">
                                     <li class="has-mega gc_main_navigation"><a href="{{route('job')}}" class="gc_main_navigation">  Job&nbsp;</i></a>
                                         <!-- mega menu start --></li>
+                                    @if (Auth::user())
                                     <li class="parent gc_main_navigation"><a href="{{route('candidates')}}" class="gc_main_navigation">candidates &nbsp;</a>
                                     </li>
-                                    <li class="gc_main_navigation parent"><a href="contact.html" class="gc_main_navigation">Contact</a></li>
+                                    @endif
+                                    <li class="parent gc_main_navigation"><a href="{{route('company')}}" class="gc_main_navigation">company &nbsp;</a>
+                                    </li>
+                                    <li class="gc_main_navigation parent"><a href="" class="gc_main_navigation">my account</a></li>
                                 </ul>
                             </div>
                             <!-- mainmenu end -->
@@ -80,19 +84,19 @@
                                                         </li>
                                                         <!-- .has-children -->
                                                         <li >
-                                                            <a href="{{route('candidates')}}">Jobs</a>
+                                                            <a href="{{route('job')}}">Jobs</a>
                                                             <!-- .cd-secondary-dropdown -->
                                                         </li>
                                                         <!-- .has-children -->
                                                         <li >
-                                                            <a href="{{route('candidates')}}">Company</a>
+                                                            <a href="{{route('company')}}">Company</a>
                                                             <!-- .cd-secondary-dropdown -->
                                                         </li>
-                                                        <!-- .has-children -->
-                                                        <li>
-                                                            <a href="contact.html">Contact</a>
-                                                        </li>
                                                         @if (Auth::user())
+                                                        <li >
+                                                            <a href="">My Account</a>
+                                                            <!-- .cd-secondary-dropdown -->
+                                                        </li>
                                                         <li><a href="{{ route('logout') }}"><i class="fa fa-user"></i>&nbsp; LOG OUT</a></li>
                                                         @else
                                                         <li><a href="{{ route('register') }}"><i class="fa fa-user"></i>&nbsp; SIGN UP</a></li>
@@ -145,7 +149,7 @@
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="jp_header_form_wrapper">
-                            <form action="search" method="Post">
+                            <form action="search" method="Get">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                     <input type="text" name="key" value="{{old('key')}}" placeholder="Keyword e.g. (Job Title, Description, Tags)">
@@ -215,7 +219,7 @@
                     <div class="jp_top_jobs_category">
                         <i class="fa fa-th-large"></i>
                         <h3><a href="{{route('job')}}">All Jobs</a></h3>
-                        <p>(2000+ jobs)</p>
+                        <p>({{$listjob->count()}})</p>
                     </div>
                 </div>
             </div>
@@ -370,7 +374,7 @@
                                     <div class="ss_featured_products">
                                         <div class="owl-carousel owl-theme">
                                             <div class="item" data-hash="zero">
-                                            @foreach($listjob as $list)
+                                            @foreach($listjob->take(3) as $list)
                                                 <div class="jp_job_post_main_wrapper_cont">
                                                     <div class="jp_job_post_main_wrapper">
                                                         <div class="row">
@@ -485,6 +489,7 @@
                                 </div>
                             </div>
                         </div>
+                        @if(!Auth::user())
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="jp_register_section_main_wrapper">
                                 <div class="jp_regis_left_side_box_wrapper">
@@ -493,7 +498,7 @@
                                         <h4>I’m an EMPLOYER</h4>
                                         <p>Signed in companies are able to post new<br> job offers, searching for candidate...</p>
                                         <ul>
-                                            <li><a href=""><i class="fa fa-plus-circle"></i> &nbsp;REGISTER AS COMPANY</a></li>
+                                            <li><a href="{{ route('register') }}"><i class="fa fa-plus-circle"></i> &nbsp;REGISTER AS COMPANY</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -504,7 +509,7 @@
                                         <h4>I’m an candidate</h4>
                                         <p>Signed in companies are able to post new<br> job offers, searching for candidate...</p>
                                         <ul>
-                                            <li><a href="#"><i class="fa fa-plus-circle"></i> &nbsp;REGISTER AS COMPANY</a></li>
+                                            <li><a href="{{ route('register') }}"><i class="fa fa-plus-circle"></i> &nbsp;REGISTER AS CANDIDATE</a></li>
                                         </ul>
                                     </div>
                                     <div class="jp_regis_center_tag_wrapper">
@@ -514,6 +519,7 @@
 
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -526,7 +532,7 @@
                                         <img src="images/content/resume_logo.png" alt="logo" />
                                         <h4>Get Best Matched Jobs On your Email. Add Resume NOW!</h4>
                                         <ul>
-                                            <li><a href="{{route('job-posting')}}"><i class="fa fa-plus-circle"></i> &nbsp;ADD RESUME</a></li>
+                                            <li><a href="{{route('cv-posting')}}"><i class="fa fa-plus-circle"></i> &nbsp;ADD RESUME</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -554,7 +560,7 @@
                                                 <div class="jp_spotlight_slider_btn_wrapper">
                                                     <div class="jp_spotlight_slider_btn">
                                                         <ul>
-                                                            <li><a href="#"><i class="fa fa-plus-circle"></i> &nbsp;ADD RESUME</a></li>
+                                                            <li><a href="{{route('job-posting')}}"><i class="fa fa-plus-circle"></i> &nbsp;ADD RESUME</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -781,7 +787,7 @@
                             <h4>Recent Resumes</h4>
                         </div>
                         <div class="jp_rightside_career_main_content">
-                        @foreach($listresumes as $listresume)
+                        @foreach($listresumes->take(3) as $listresume)
                             <div class="jp_rightside_career_content_wrapper jp_best_deal_right_content">
                                 <div class="jp_rightside_career_img">
                                     <img src="images/content/client_img1.jpg" alt="career_img" />
@@ -793,7 +799,7 @@
                             </div>
                         @endforeach    
                             <div class="jp_rightside_career_btn">
-                                <a href="#"><i class="fa fa-plus-circle"></i> View All</a>
+                                <a href="{{route('candidates')}}"><i class="fa fa-plus-circle"></i> View All</a>
                             </div>
                         </div>
                     </div>

@@ -36,7 +36,7 @@ class handleRegisterController extends Controller
             $user->name = $request->input('user-name');
             $user->user = $request->input('user-name');
             $user->email = $request ->input('email');
-            $user->password = $request->input('password');
+            $user->password = bcrypt($request->input('password'));
             $user->phone = $request->input('phone');
             $user->technique = " ";
             $user->add = $request->input('location');

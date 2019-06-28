@@ -41,7 +41,7 @@
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="jp_header_form_wrapper">
-                            <form action="search" method="Post">
+                            <form action="search" method="Get">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                     <input type="text" name="key" value="{{old('key')}}" placeholder="Keyword e.g. (Job Title, Description, Tags)">
