@@ -97,6 +97,80 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Số lượng tin đăng trong 7 ngày</div>
+                    <div class="panel-body">
+                        <canvas id="line-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Số lượng người đăng kí trong 7 ngày</div>
+                    <div class="panel-body">
+                        <canvas id="line-chart-user"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 @endsection
+<script type="text/javascript">
+    window.onload = function () {
+        Chart.defaults.global.defaultFontColor = '#000000';
+        Chart.defaults.global.defaultFontFamily = 'Arial';
+        var lineChart_reg = document.getElementById('line-chart');
+        var lineChart_user = document.getElementById('line-chart-user');
+        var myChart = new Chart(lineChart_reg, {
+            type: 'line',
+            data: {
+                labels: [<?php echo '\''.$weekday.'\'' ?>],
+                datasets: [
+                    {
+                        label: 'Số lượng tin đăng trong 7 ngày',
+                        data: [<?php echo $reg_count?>],
+                        backgroundColor: 'rgba(0, 128, 128, 0.3)',
+                        borderColor: 'rgba(0, 128, 128, 0.7)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                },
+            }
+        });
+        var myChart = new Chart(lineChart_user, {
+            type: 'line',
+            data: {
+                labels: [<?php echo '\''.$userday.'\'' ?>],
+                datasets: [
+                    {
+                        label: 'Số người đăng kí trong 7 ngày',
+                        data: [<?php echo $user_count?>],
+                        backgroundColor: 'rgba(0, 128, 128, 0.7)',
+                        borderColor: 'rgba(0, 128, 128, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                },
+            }
+        });
+    };
+</script>

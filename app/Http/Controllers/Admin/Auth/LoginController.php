@@ -5,7 +5,7 @@ use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
-use App\Admin
+use App\Admin;
 
 class LoginController extends Controller
 {
@@ -19,8 +19,7 @@ class LoginController extends Controller
         return view('admin.auth.login', [
             'title' => 'Admin Login',
             'loginRoute' => 'admin.login',
-            'forgotPasswordRoute' => 'admin.password.request',
-            'adCount' => $adCount]);
+            'forgotPasswordRoute' => 'admin.password.request']);
     }
     /**
      * Login the admin.
