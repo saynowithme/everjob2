@@ -69,6 +69,11 @@ class HomeController extends Controller
         return view('admin.post.list',['posts'=>$posts]);
     }
 
+    public function getpostunactive(){
+        $posts = Recruiment::where('RegStatus',0)->get();
+        return view('admin.post.list',['posts'=>$posts]);
+    }
+
     public function updateStatus(Request $request)
     {
         if($request->ajax()){

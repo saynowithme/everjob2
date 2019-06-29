@@ -80,6 +80,12 @@ Route::prefix('post')->name('admin.')->namespace('Admin')->group(function () {
     Route::get('delete/{id}', 'HomeController@getDelete');
 });
 
+Route::prefix('post_no')->name('admin.')->namespace('Admin')->group(function () {
+    Route::get('/', 'HomeController@getpostunactive')->name('list-post-no');   
+    Route::put('updateStatus', 'HomeController@updateStatus');
+    Route::get('delete/{id}', 'HomeController@getDelete');
+});
+
 Route::prefix('categories')->name('admin.')->namespace('Admin')->group(function () {
     Route::get('/', 'HomeController@getcate')->name('list-cate');
     Route::get('add', 'HomeController@getAddCate')->name('cate-add');

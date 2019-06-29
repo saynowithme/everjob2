@@ -41,7 +41,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="admin/category">
+                            <a href="post_no">
                                 <div class="panel-footer">
                                     <span class="pull-left">View Details</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

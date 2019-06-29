@@ -30,7 +30,8 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{route('admin.list-post')}}"><i class="fa fa-circle-o"></i> All Posts</a></li>
+                <li><a href="{{route('admin.list-post')}}"><i class="fa fa-circle-o"></i> All Posts Active</a></li>
+                <li><a href="{{route('admin.list-post-no')}}"><i class="fa fa-circle-o"></i> All Posts Unactive</a></li>
               </ul>
             </li>
             <li class="treeview">
