@@ -69,7 +69,6 @@ class HomeController extends Controller
 
     public function updateStatus(Request $request)
     {
-        
         if($request->ajax()){
             $post = Recruiment::find($request->input('RecID'));
             

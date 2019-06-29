@@ -73,7 +73,7 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
     Route::get('/', 'HomeController@index')->name('home')->middleware('guard.verified:admin');
 });
 
-//group for post_admin
+//group for post_admin ... viet cai loz gi the nay ????
 Route::prefix('post')->name('admin.')->namespace('Admin')->group(function () {
     Route::get('/', 'HomeController@getpostactive')->name('list-post');   
     Route::put('updateStatus', 'HomeController@updateStatus');
