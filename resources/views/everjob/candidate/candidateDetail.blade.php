@@ -259,7 +259,7 @@
                             <div class="jp_footer_first_cont_wrapper">
                                 <div class="jp_footer_first_cont">
                                     <h2>Who We Are</h2>
-                                    <p>This is Photoshop's version of Lom Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum.<br><br> Proin akshay handge vel velit auctor aliquet. Aenean sollicitudin,</p>
+                                    <p>Đặng Trường Trúc (DEV)<br><br> Nguyễn Thành Long(DEV)<br><br> Trần Xuân Ba(DEV) <br><br> Ngô Văn Luân (TESTER)</p>
                                     <ul>
                                         <li><i class="fa fa-plus-circle"></i> <a href="#">READ MORE</a></li>
                                     </ul>
