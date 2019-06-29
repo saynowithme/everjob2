@@ -23,7 +23,7 @@
             </div>
             <!-- /.col-lg-12 -->
             <div class="form-group">
-                <a type="button" class="btn btn-success" href="admin/admin/add" >
+                <a type="button" class="btn btn-success" href="admins/add" >
                     <i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm Admin
                 </a>
             </div>
@@ -32,8 +32,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Tên</th>
-                        <th>Số Bài Viết</th>
-                        <th>Tạo Lúc</th>
+                        <th>Email</th>
                         <th>Hành Động</th>
                     </tr>
                 </thead>
@@ -43,13 +42,10 @@
                             <td>{{ $list->id }}</td>
                             <td>
                                 {{ $list->name }}
-                            </td>
-                            <td>    
-                                {{ $list->posts->count() }}
-                            </td>
-                            <td>    
-                                {{ $list->created_at }}
-                            </td>                        
+                            </td> 
+                            <td>
+                                {{ $list->email }}
+                            </td>                       
                             <td>
                                 <button data-id="{{$list->id}}" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#show-delete">
                                     <i class="fa fa-trash" aria-hidden="true"></i> Xoá
@@ -113,7 +109,7 @@
             <form id="form-delete">
                 {{ csrf_field() }}
                 <input type="hidden" name="id" id="del-id">
-                <p>Bạn có chắc muốn xóa tài khoản id <strong id="del-id"></strong> cũng như các bài viết của họ ?</p>
+                <p>Bạn có chắc muốn xóa tài khoản id <strong id="del-id"></strong> ?</p>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <a href="" class="btn btn-danger" id="delete">Xóa</a>
@@ -137,13 +133,13 @@
             var iddel = button.data('id')
             var modal = $(this)
             modal.find('.modal-body #del-id').html(iddel);
-            modal.find('.modal-body #delete').attr('href', 'admin/admin/delete/'+iddel);
+            modal.find('.modal-body #delete').attr('href', 'admins/delete/'+iddel);
         });
 
         $('#show-add').on( "submit", function (event) {
             var button = $(event.Target)
             var modal = $(this)
-            modal.find('.modal-body #add').attr('href', 'admin/admin/add/');
+            modal.find('.modal-body #add').attr('href', 'admins/add/');
         });
         
         

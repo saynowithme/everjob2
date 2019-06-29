@@ -30,8 +30,7 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> All Posts</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Add New</a></li>
+                <li><a href="{{route('admin.list-post')}}"><i class="fa fa-circle-o"></i> All Posts</a></li>
               </ul>
             </li>
             <li class="treeview">
@@ -43,8 +42,8 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> All Admin</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Add Admin</a></li>
+                <li><a href="{{route('admin.list-admin')}}"><i class="fa fa-circle-o"></i> All Admin</a></li>
+                <li><a href="{{route('admin.admin-add')}}"><i class="fa fa-circle-o"></i> Add Admin</a></li>
               </ul>
             </li>
             <li class="treeview">

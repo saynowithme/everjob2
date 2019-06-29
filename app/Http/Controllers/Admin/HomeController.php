@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Admin;
 use App\Recruiment;
 use App\Category;
+use App\Customers;
 use Carbon\Carbon;
 use Validator;
 use Session;
@@ -24,6 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         $num_admin = Admin::all()->count();
+        $num_user=Customers::all()->count();
         $num_cate = Category::all()->count();
         $num_post_accept = Recruiment::where('regStatus',1)->get()->count();
         $num_post_required = Recruiment::where('regStatus',0)->get()->count();
@@ -59,7 +61,7 @@ class HomeController extends Controller
         }
         $userDay = implode('\', \'', $userDay);
         $user_count = implode(", ",$user_count);
-        return view('admin.index', ['num_post_accept' => $num_post_accept,'num_cate'=>$num_cate, 'num_post_required' => $num_post_required, 'num_admin' => $num_admin, 'regs'=>$regs, 'weekday'=>$weekDay, 'reg_count'=>$reg_count, 'users'=>$users, 'userday'=>$userDay, 'user_count'=>$user_count]);
+        return view('admin.index', ['num_post_accept' => $num_post_accept,'num_cate'=>$num_cate, 'num_user'=>$num_user, 'num_post_required' => $num_post_required, 'num_admin' => $num_admin, 'regs'=>$regs, 'weekday'=>$weekDay, 'reg_count'=>$reg_count, 'users'=>$users, 'userday'=>$userDay, 'user_count'=>$user_count]);
     }
 
     public function getpostactive(){
@@ -192,4 +194,63 @@ class HomeController extends Controller
             return redirect('categories');
         }
     }
+
+    //quan ly admin
+    public function getListAd()
+    {      
+        $list = Admin::all();
+    	return view('admin.admin.list',['list'=>$list]);
+    }
+
+    public function admindelete($id)
+    {
+        $admin = Admin::find($id);
+            if( $admin ){
+                    $admin->delete();
+                    Session::flash('flash_success','Xóa thành công.');
+                    return redirect()->route('list-admin');
+            } else {
+                Session::flash('flash_err','Tài khoản không tồn tại.');
+            }
+            return redirect('admins'); 
+    }
+
+    public function getAdAdd(Request $request){
+        return view('admin.admin.add');
+    }
+
+    public function adminAdd(Request $request){
+        $rules= [
+                'email' => 'required|regex:/^.+@.+$/i|unique:admins',
+                'name' =>'required',
+                'password' =>'required|min:8',
+
+                ];
+        $msg = [
+                'name.required'=>'Không được bỏ trống tên.',
+                'email.required'=>'Không được bỏ trống email.',
+                'email.unique' => 'Email này đã bị trùng, vui lòng nhập lại!',
+                'email.regex' => 'Email sai định dạng, vui lòng nhập lại!',
+                'password.required'=>'Không được bỏ trống mật khẩu.',
+                'password.min'=>'Mật khẩu tức gồm ít nhất 8 ký tự!',
+                ];
+        $validator = Validator::make($request->all(), $rules , $msg);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        } else {
+            $admin = new Admin();
+            $admin->name = $request->input('name');
+            $admin->password = bcrypt($request->input('password'));
+            $admin->email = $request->input('email');
+            $admin->save();
+            // Inset to table tag.
+        Session::flash('flash_success','Thêm tài khoản thành công.');
+        return redirect('admins'); 
+        }
+        
+    }
+    //end admin
 }

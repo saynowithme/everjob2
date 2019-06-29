@@ -398,7 +398,7 @@
                                                                     <ul>
                                                                         <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
                                                                         <li><p>{{$list->JobType}}</p></li>
-                                                                        <li><a href="#">Apply</a></li>
+                                                                        <li><a href="{{route('job1',$list->RecID)}}">Apply</a></li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
