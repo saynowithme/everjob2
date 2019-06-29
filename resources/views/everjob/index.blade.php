@@ -179,9 +179,9 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                                    <div class="jp_form_btn_wrapper">
+                                    <div class="jp_form_btn_wrapper_check">
                                         <ul>
-                                            <li><button type="submit" class="btn btn-primary"><i class="fa fa-search"></i>&nbsp; Search</button></li>
+                                            <li><button type="submit"><i class="fa fa-search"></i>&nbsp; Search</button></li>
                                         </ul>
                                     </div>
                                 </div>

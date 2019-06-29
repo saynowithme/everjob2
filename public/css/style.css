@@ -1,4 +1,4 @@
-/*------------------------------------------------------------------
+------------------------------------------------------------------
 [Master Stylesheet]
 
 Project:	Job Pro
@@ -914,6 +914,39 @@ ul{
 .jp_form_btn_wrapper li a i{
 	padding-right:5px;
 }
+/* */
+.jp_form_btn_wrapper_check li button{
+    float:left;
+    width:100%;
+    height:50px;
+    -webkit-border-radius:15px;
+    -moz-border-radius:15px;
+    border-radius:15px;
+    background:#23c0e9;
+    color:#ffffff;
+    line-height:50px;
+    text-align:center;
+    font-weight:bold;
+    font-size:16px;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.jp_form_btn_wrapper_check li button:hover{
+    background:#ffffff;
+    color:#000000;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.jp_form_btn_wrapper_check li button i{
+    padding-right:5px;
+}
+/**/
 .jp_banner_main_jobs_wrapper{
 	float:left;
 	width:100%;
@@ -3611,4 +3644,4 @@ ul{
 	-moz-transition: all 0.5s;
 	transition: all 0.5s;
 }
-/*-- jp footer Wrapper End --*/
+/*-- jp footer Wrapper End --
