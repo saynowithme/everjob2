@@ -85,7 +85,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="admin/admin">
+                            <a href="admins">
                                 <div class="panel-footer">
                                     <span class="pull-left">View Details</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -102,8 +102,8 @@
                                         <i class="fa fa-users fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">{{ $num_admin}}</div>
-                                        <div>Quản trị viên</div>
+                                        <div class="huge">{{ $num_user}}</div>
+                                        <div>Người dùng</div>
                                     </div>
                                 </div>
                             </div>

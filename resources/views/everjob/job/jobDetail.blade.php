@@ -608,7 +608,7 @@ Purchase:
                                         <div class="jp_listing_right_bar_btn">
                                             <ul>
                                                 <li><a href="#"><i class="fa fa-plus-circle"></i> &nbsp;Apply With Facebook</a></li>
-                                                <li><a href="#"><i class="fa fa-plus-circle"></i> &nbsp;Apply NOw!</a></li>
+                                                <li><a><i class="fa fa-plus-circle"></i> &nbsp;Apply NOw!</a></li>
                                             </ul>
                                         </div>
                                     </div>

@@ -20,11 +20,15 @@
             </div>
             @endif
            
-            <form action="admin/admin/add" method="POST" enctype="multipart/form-data">
-                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+            <form action="" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <div class="form-group">
-                    <label>Tên đăng nhập</label>
-                    <input type="text" name="adminname" id="adminname" class="form-control" value="{{ old('adminname')}}" placeholder="Nhập Tên Đăng Nhập">
+                    <label>Họ tên</label>
+                    <input type="text" name="name" id="name" class="form-control" value="{{ old('name')}}" placeholder="Nhập Tên">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" name="email" id="email" class="form-control" value="{{ old('email')}}" placeholder="Nhập Email">
                 </div>
                 <div class="form-group">
                     <label>Mật khẩu</label>

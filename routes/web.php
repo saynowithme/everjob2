@@ -89,6 +89,13 @@ Route::prefix('categories')->name('admin.')->namespace('Admin')->group(function 
     Route::get('delete/{id}', 'HomeController@catedelete');
 });
 
+Route::prefix('admins')->name('admin.')->namespace('Admin')->group(function () {
+    Route::get('/', 'HomeController@getListAd')->name('list-admin');
+    Route::get('add', 'HomeController@getAdAdd')->name('admin-add');
+    Route::post('add', 'HomeController@adminAdd');
+    Route::get('delete/{id}', 'HomeController@admindelete');
+});
+
 // Register 
 Route::get('get-form',['uses'=> 'handleRegisterController@getForm']);
 Route::post('handle-form',['uses'=>'handleRegisterController@handleRequest']);
