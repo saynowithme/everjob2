@@ -5,11 +5,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Admin;
 use App\Recruiment;
-<<<<<<< HEAD
-use Session;
-=======
+use App\Category;
 use Carbon\Carbon;
->>>>>>> e905b7cc1f6fbf0c7d8b0f07b43792ae557126ce
+use Validator;
+use Session;
 class HomeController extends Controller
 {
     public function __construct()
@@ -25,11 +24,7 @@ class HomeController extends Controller
     public function index()
     {
         $num_admin = Admin::all()->count();
-<<<<<<< HEAD
-        $num_post_accept = Recruiment::where('RegStatus',1)->get()->count();
-        $num_post_required = Recruiment::where('RegStatus',0)->get()->count();
-        return view('admin.index', ['num_post_accept' => $num_post_accept, 'num_post_required' => $num_post_required, 'num_admin' => $num_admin]);
-=======
+        $num_cate = Category::all()->count();
         $num_post_accept = Recruiment::where('regStatus',1)->get()->count();
         $num_post_required = Recruiment::where('regStatus',0)->get()->count();
         $dayBefore = Carbon::now()->subDays(7);
@@ -64,8 +59,7 @@ class HomeController extends Controller
         }
         $userDay = implode('\', \'', $userDay);
         $user_count = implode(", ",$user_count);
-        return view('admin.index', ['num_post_accept' => $num_post_accept, 'num_post_required' => $num_post_required, 'num_admin' => $num_admin, 'regs'=>$regs, 'weekday'=>$weekDay, 'reg_count'=>$reg_count, 'users'=>$users, 'userday'=>$userDay, 'user_count'=>$user_count]);
->>>>>>> e905b7cc1f6fbf0c7d8b0f07b43792ae557126ce
+        return view('admin.index', ['num_post_accept' => $num_post_accept,'num_cate'=>$num_cate, 'num_post_required' => $num_post_required, 'num_admin' => $num_admin, 'regs'=>$regs, 'weekday'=>$weekDay, 'reg_count'=>$reg_count, 'users'=>$users, 'userday'=>$userDay, 'user_count'=>$user_count]);
     }
 
     public function getpostactive(){
@@ -75,16 +69,17 @@ class HomeController extends Controller
 
     public function updateStatus(Request $request)
     {
+        
         if($request->ajax()){
-            $post = Recruiment::find($request->input('id'));
+            $post = Recruiment::find($request->input('RecID'));
+            
             if( $post ){
-                if( Auth::user()){
-                    if($request->input('status')== 0 || $request->input('status')==1 ){
-                        $post->RegStatus =$request->input('status');
-                        $post->save();
-                        return 'ok';
-                    } else { return 'Sai trạng thái.';}
-                } else { return 'Bạn không đủ quyền'; }
+                if($request->input('status')== 0 || $request->input('status')==1 ){
+                    $post->RegStatus =$request->input('status');
+                    $post->save();      
+                    return 'ok';
+                } else { return 'Sai trạng thái.';}
+               
             } else { return 'Bài viết không tồn tại.'; }
         }
     }
@@ -105,5 +100,97 @@ class HomeController extends Controller
 	    		Session::flash('flash_err','Bài viết không tồn tại.');
 	    	}
 	    	return redirect()->route('list-post');
+    }
+
+    public function getcate(){
+        $cates = Category::all();
+        return view('admin.category.list',['cates'=>$cates]);
+    }
+
+    public function catedelete($id)
+    {
+        $cate = Category::find($id);
+            if( $cate){
+                    $cate->delete();
+                    Session::flash('flash_success','Xóa thành công.');
+                    return redirect('categories'); 
+            } else {
+                Session::flash('flash_err','Bài viết không tồn tại.');
+            }
+            return redirect('categories'); 
+    }
+
+    public function getAddCate()
+    {
+    	$cates = Category::all();
+    	return view('admin.category.add',["cates"=>$cates]);
+    }
+    public function catAdd(Request $req)
+    {
+        $maxid = Category::OrderBy('id','desc')->first();
+        $max=$maxid->id + 1;
+    	$this->validate($req,
+    		[
+    			'cate_name'=>'required|unique:categories,name|min:3|max:70',
+
+    		],
+    		[
+    			'cate_name.required'=>'Bạn chưa nhập tên chuyên mục!',
+                'cate_name.min'=>'Tên chuyên mục gồm ít nhất 3 ký tự!',
+                'cate_name.max'=>'Tên chuyên mục gồm tối đa 50 ký tự!',
+
+    		]);
+        $cate = new Category();
+        $cate->id = $max;
+    	$cate->name = $req->input('cate_name');
+    	$cate->save();
+    	Session::flash('flash_success','Thêm chuyên mục thành công.');
+        return redirect('categories');  
+    }
+
+    public function getCateUpdate($id)
+    {
+        $cate = Category::find($id);
+
+        if($cate){
+                return view('admin.category.edit',['cate'=>$cate]);
+        }
+        else {
+            Session::flash('flash_err','Sai Thông tin Chuyên mục.');
+            return redirect('categories');
+        }
+        
+    }
+
+    public function catUpdate(Request $request, $id)
+    {
+    	$cate = Category::find($id);
+        if( $cate ) {
+                $rules= [
+                        'name'=>'required|min:3|max:30|unique:categories,name',
+                    ];
+                $msg = [
+                        'name.required'=>'Không được bỏ trống tiêu đề.',
+                        'name.unique' => 'Tin này đã bị trùng, vui lòng nhập lại!',
+                        'name.min'=>'Tên tin tức gồm ít nhất 3 ký tự!',
+                        'name.max'=>'Tên tin tức gồm tối đa 30 ký tự!',
+                    ];
+
+                $validator = Validator::make($request->all(), $rules , $msg);
+
+                if ($validator->fails()) {
+                    return redirect()->back()
+                                ->withErrors($validator)
+                                ->withInput();
+                } else {
+                    $cate->name = $request->input('name');
+                    $cate->save();
+                    Session::flash('flash_success','Thay đổi thành công.');
+                    return redirect('categories');
+                }
+        } else {
+            Session::flash('flash_err','Sai thông tin bài viết.');
+            return redirect('categories');
+        }
     }
 }

@@ -24,15 +24,11 @@
                     {{ session('flash_success') }}
                 </div>
                 @endif
-                <form action="admin/category/add" method="POST">
+                <form action="add" method="POST">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-group">
                         <label>Tên Chuyên Mục</label>
                         <input class="form-control" name="cate_name" id="title" placeholder="Tên Chuyên Mục" />
-                    </div>
-                     <div class="form-group">
-                        <label>Đường dẫn</label>
-                        <input class="form-control" name="slug" id="slug" placeholder="Slug được tạo tự động" />
                     </div>
                     <button type="reset" class="btn btn-default">Làm mới</button>
                     <button type="submit" class="btn btn-primary">Thêm</button>
@@ -44,16 +40,4 @@
     <!-- /.container-fluid -->
 </div>
 <!-- /#page-wrapper -->
-@endsection
-@section('script')
-    <script src="js/slug.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#title').keyup(function(event) {
-                var title = $('#title').val();
-                var slug = ChangeToSlug(title);
-                $('#slug').val(slug);
-            });
-        });
-    </script>
 @endsection

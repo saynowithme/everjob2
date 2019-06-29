@@ -17,7 +17,7 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li>
-              <a href="{{ url('/home') }}">
+              <a href="/admin">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
               </a>
             </li>
@@ -45,6 +45,19 @@
               <ul class="treeview-menu">
                 <li><a href="#"><i class="fa fa-circle-o"></i> All Admin</a></li>
                 <li><a href="#"><i class="fa fa-circle-o"></i> Add Admin</a></li>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-pencil"></i>
+                <span>Category</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{route('admin.list-cate')}}"><i class="fa fa-circle-o"></i> All Category</a></li>
+                <li><a href="{{route('admin.cate-add')}}"><i class="fa fa-circle-o"></i> Add Category</a></li>
               </ul>
             </li>
           </ul>

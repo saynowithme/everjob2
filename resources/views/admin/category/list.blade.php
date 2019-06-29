@@ -25,7 +25,6 @@
                     <tr>
                         <th>ID</th>
                         <th>Tên</th> 
-                        <th>Đường Dẫn</th>
                         <th>Số bài đăng</th>
                         <th>Hành Động</th>
                     </tr>
@@ -37,14 +36,11 @@
                             <td>
                                 {{ $cate->name }}
                             </td>
-                            <td>
-                                {{ $cate->slug }}
-                            </td>
                             <td>    
-                                {{ $cate->posts->count() }}
+                                {{ $cate->recruiment->count() }}
                             </td>                      
                             <td>
-                                <a href="admin/category/update/{{$cate->id}}" class="btn btn-info btn-sm">
+                                <a href="categories/update/{{$cate->id}}" class="btn btn-info btn-sm">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sửa 
                                 </a>
                                 <button data-id="{{$cate->id}}" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#show-delete">
@@ -97,7 +93,7 @@
             var iddel = button.data('id')
             var modal = $(this)
             modal.find('.modal-body #del-id').html(iddel);
-            modal.find('.modal-body #delete').attr('href', 'admin/category/delete/'+iddel);
+            modal.find('.modal-body #delete').attr('href', 'categories/delete/'+iddel);
         });
        
     });

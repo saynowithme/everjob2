@@ -21,7 +21,7 @@
                 @endif
                 <table class="table table-striped table-bordered table-hover " id="example">
                     <thead>
-                        <tr align="center">
+                        <tr>
                             <th>ID</th>
                             <th>Tên Công Ty</th>
                             <th>Tên Công Việc</th>
@@ -90,11 +90,10 @@
  <script type="text/javascript">
     $(document).ready(function() {
         $('#example').DataTable({'iDisplayLength': '10',"order": [[ 0, "desc" ]]});
-        @if(Auth::user())
         $('.status').css('cursor', 'pointer');
         /*Changer Status */
         $('.status').click(function(event) {
-            id = $(this).parent().find("td:eq(0)").text();
+            RecID = $(this).parent().find("td:eq(0)").text();
             var status = $(this).find('i.fa-ban').text();
             var div = $(this);
             if(status){
@@ -103,8 +102,9 @@
             $.ajax({
                 url: 'post/updateStatus',
                 type: 'Put',
-                data: {"id": id,"status":status,"_token": "{{ csrf_token() }}"},
+                data: {"RecID": RecID,"status":status,"_token": "{{ csrf_token() }}"},
             })
+            
             .done(function(data) {
                 if(data=='ok'){
                     $.alert("Thay đổi thành công.",{
@@ -137,7 +137,7 @@
                 console.log("error");
             })
         });
-        @endif
+       
         $('#modal-delete').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget) 
           var iddel = button.data('id')

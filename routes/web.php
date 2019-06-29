@@ -80,6 +80,15 @@ Route::prefix('post')->name('admin.')->namespace('Admin')->group(function () {
     Route::get('delete/{id}', 'HomeController@getDelete');
 });
 
+Route::prefix('categories')->name('admin.')->namespace('Admin')->group(function () {
+    Route::get('/', 'HomeController@getcate')->name('list-cate');
+    Route::get('add', 'HomeController@getAddCate')->name('cate-add');
+    Route::post('add', 'HomeController@catAdd');          
+    Route::get('update/{id}', 'HomeController@getCateUpdate');
+    Route::post('update/{id}', 'HomeController@catUpdate');   
+    Route::get('delete/{id}', 'HomeController@catedelete');
+});
+
 // Register 
 Route::get('get-form',['uses'=> 'handleRegisterController@getForm']);
 Route::post('handle-form',['uses'=>'handleRegisterController@handleRequest']);

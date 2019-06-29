@@ -19,16 +19,12 @@
                 @endforeach
             </div>
             @endif
-            <form action="admin/category/update/{{$cate->id}}" method="Post" enctype="multipart/form-data">
+            <form action="" method="Post" enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <div class="form-group">
                     <label>Tên chuyên mục</label>
                     <input type="text" name="name" id="name" class="form-control" value="{{ $cate->name }}" placeholder="Nhập Tên chuyên mục">
-                </div>
-                 <div class="form-group">
-                    <label>Đường dẫn</label>
-                    <input type="text" name="slug" id="slug" class="form-control" value="{{ $cate->slug }}">
-                </div>            
+                </div>         
                 <button type="reset" class="btn btn-default">Làm Mới</button>
                 <button type="submit" class="btn btn-primary">Lưu Thay Đổi</button>
             </form>
